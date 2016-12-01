@@ -20,25 +20,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        // first put data in
+        StripDataHolder holder = initializeData();
+
+        mRecyclerView = (RecyclerView)findViewById(R.id.rv);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager = new LinearLayoutManager(this); //maybe should be "context" ???
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
-        StripDataHolder holder = setUpStripDataFromResImgs();
+
         mAdapter = new AllStripAdapter(holder.getData());
         mRecyclerView.setAdapter(mAdapter);
-
-
-
-
-
 
         Log.d("datas", "IN ON CREATE");
     }
@@ -48,12 +46,19 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private StripDataHolder setUpStripDataFromResImgs(){
+    private StripDataHolder initializeData(){
         StripDataHolder holder = StripDataHolder.getInstance();
 //        ArrayList<Strip> strips = StripDataHolder.getInstance().getData();
-        Strip newStrip = new Strip("first title", "first_user");
-        newStrip.addPanel("second_user", false, "LOLimgpathgoeshere");
+        Strip newStrip = new Strip("first gracie title", "gracie");
+        newStrip.addPanel("shannon", R.drawable.cat_0);
         holder.addNewStrip(newStrip);
+        Log.d("datas", "added pannel 1 with author shannon to strip first gracie title");
+
+        Strip newStrip2 = new Strip("SECOND2 title", "madison");
+        newStrip2.addPanel("madison", R.drawable.cat_1);
+        holder.addNewStrip(newStrip2);
+        Log.d("datas", "added panel 2 to strip SECOND2 title with author madison");
+
         Log.d("datas", holder.getData().toString());
 
         // Now to create the panels and strip for the cats

@@ -15,16 +15,18 @@
     <!-- A RecyclerView with some commonly used attributes -->
     <!-- Will display the current strips -->
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/my_recycler_view"
+        android:id="@+id/rv"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"/>
 
     <!-- NOT SURE THIS WILL WORK ??? -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/my_text_view"/>
+        android:id="@+id/my_text_view"
+        android:text="DOES THIS SHOW UP"/>
 
     <Button
         android:layout_width="match_parent"

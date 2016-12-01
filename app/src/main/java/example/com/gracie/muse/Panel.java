@@ -7,13 +7,13 @@ package example.com.gracie.muse;
 
 public class Panel {
     private String creatorUsername;
-    private boolean isInDrawables;
     private String imageNameOrPath;
+    private int imageID; // The ID for the image, -1 if not in res
 
-    public Panel(String username, boolean inDrawables, String imgNameOrPath){
+    public Panel(String username, String imgPath, int imgID){
         creatorUsername = username;
-        isInDrawables = inDrawables;
-        imageNameOrPath = imgNameOrPath;
+        imageNameOrPath = imgPath;
+        imageID = imgID;
     }
 
     public String getCreatorUsername(){
@@ -21,10 +21,14 @@ public class Panel {
     }
 
     public boolean isInDrawables(){
-        return isInDrawables;
+        return imageID > 0;
     }
 
-    public String getImageNameOrPath(){
+    public String getImagePath(){
         return imageNameOrPath;
+    }
+
+    public int getImageID(){
+        return imageID;
     }
 }
