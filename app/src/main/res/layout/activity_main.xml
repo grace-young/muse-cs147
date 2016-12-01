@@ -9,7 +9,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:gravity="bottom|center_horizontal"
     tools:context="example.com.gracie.muse.MainActivity">
 
     <!-- A RecyclerView with some commonly used attributes -->
@@ -18,19 +17,14 @@
         android:id="@+id/rv"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"/>
-
-    <!-- NOT SURE THIS WILL WORK ??? -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/my_text_view"
-        android:text="DOES THIS SHOW UP"/>
+        android:layout_height="0dip"
+        android:layout_weight="1"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="createNewStrip"
+        android:layout_gravity="center|bottom"
+        android:layout_weight="0"
         android:text="@string/create_strip_button"/>
 </LinearLayout>
