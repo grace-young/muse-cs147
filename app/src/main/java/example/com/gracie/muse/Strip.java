@@ -49,4 +49,12 @@ public class Strip {
     public String getStripTitle(){
         return stripTitle;
     }
+
+    public String toString(){
+        /*String stripTitle;
+    private String ownerUsername;
+    private ArrayList<Panel> panelsInStrip;
+    private boolean stripCompleted;*/
+        return "Strip title: " + stripTitle + " created by: " + ownerUsername + ". It has " + panelsInStrip.size() + " panels";
+    }
 }

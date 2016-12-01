@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 
 public class StripDataHolder {
-    private ArrayList<Strip> allStrips;
+    private ArrayList<Strip> allStrips = new ArrayList<Strip>();
 
     public ArrayList<Strip> getData(){
         return allStrips;

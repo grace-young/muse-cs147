@@ -3,21 +3,62 @@ package example.com.gracie.muse;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter (see also next example)
+        StripDataHolder holder = setUpStripDataFromResImgs();
+        mAdapter = new AllStripAdapter(holder.getData());
+        mRecyclerView.setAdapter(mAdapter);
+
+
+
+
+
+
+        Log.d("datas", "IN ON CREATE");
     }
 
     public void createNewStrip(View view) {
         Intent intent = new Intent(this, NewStripActivity.class);
         startActivity(intent);
+    }
+
+    private StripDataHolder setUpStripDataFromResImgs(){
+        StripDataHolder holder = StripDataHolder.getInstance();
+//        ArrayList<Strip> strips = StripDataHolder.getInstance().getData();
+        Strip newStrip = new Strip("first title", "first_user");
+        newStrip.addPanel("second_user", false, "LOLimgpathgoeshere");
+        holder.addNewStrip(newStrip);
+        Log.d("datas", holder.getData().toString());
+
+        // Now to create the panels and strip for the cats
+
+        return holder;
     }
 
 }
