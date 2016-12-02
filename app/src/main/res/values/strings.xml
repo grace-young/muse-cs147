@@ -5,4 +5,5 @@
     <string name="button_send">OK</string>
     <string name="create_strip_button">Create New Strip</string>
     <string name="button_cancel">CANCEL</string>
+    <string name="edit_blurb">Enter the panel\'s \"blurb\"</string>
 </resources>

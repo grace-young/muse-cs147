@@ -1,5 +1,7 @@
 package example.com.gracie.muse;
 
+import android.util.Log;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -34,6 +36,11 @@ public class StripDataHolder {
             }
         }
         return false;
+    }
+
+    public void resetStripArray(ArrayList<Strip> stripArray){
+        allStrips = stripArray;
+        Log.d("datas", "reset the stored strip arraylist");
     }
 
     private static final StripDataHolder holder = new StripDataHolder();

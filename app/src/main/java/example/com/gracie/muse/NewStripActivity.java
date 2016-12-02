@@ -1,5 +1,6 @@
 package example.com.gracie.muse;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -8,7 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -23,6 +26,8 @@ public class NewStripActivity extends AppCompatActivity {
 
     private String selectedImgUriPath = null; // use Uri.parse() to get back to URI
 
+    private ArrayList<Strip> stripArray;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +37,7 @@ public class NewStripActivity extends AppCompatActivity {
 
         String arrayAsString = getIntent().getExtras().getString("striparray");
         List<Strip> list = Arrays.asList(new Gson().fromJson(arrayAsString, Strip[].class));
-        ArrayList<Strip> stripArray = new ArrayList<Strip>(list); //hopefully converts ??????
+        stripArray = new ArrayList<Strip>(list); //hopefully converts ??????
 
         Log.d("datas", "Got data back from Gson");
         for(int i = 0; i < stripArray.size(); i++){
@@ -45,10 +50,38 @@ public class NewStripActivity extends AppCompatActivity {
 
     public void finishNewStrip(View view) {
         // Called when "OK" button is tapped
+        Log.d("datas", "inside finishNewStrip method");
+        EditText editTitle = (EditText) findViewById(R.id.edit_blurb);
+
+        // Need to create a new Strip
+        Strip newStrip = new Strip(editTitle.getText().toString(), "owner");
+        // add a panel to that Strip
+                    // -1 signifies that it is NOT in the res folder.
+        Panel newPanel = new Panel("owner", selectedImgUriPath, -1);
+
+        newStrip.addPanel(newPanel);
+
+        // add it to the ArrayList<Strip>
+        // and send that back.
+        stripArray.add(newStrip);
+
+        // now return back to the main activity
+        Intent returnIntent = new Intent();
+
+        //       String arrayAsString = new Gson().toJson(holder.getData());
+        String arrayAsString = new Gson().toJson(stripArray);
+
+        returnIntent.putExtra("striparray", arrayAsString);
+        setResult(Activity.RESULT_OK, returnIntent);
+        finish();
     }
 
     public void cancelNewStrip(View view) {
         // Called when "CANCEL" button is tapped
+        Intent returnIntent = new Intent();
+        // there is no data to pass back
+        setResult(Activity.RESULT_CANCELED, returnIntent);
+        finish();
     }
 
     public void uploadPhoto(View view) {

@@ -1,5 +1,6 @@
 package example.com.gracie.muse;
 
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -60,7 +61,15 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
     public void onBindViewHolder(StripViewHolder holder, int i) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.titleImage.setImageResource(mDatasetStrip.get(i).getFirstPanel().getImageID());
+
+
+        if(mDatasetStrip.get(i).getFirstPanel().getImageID() < 0){
+            // FROM URI
+            holder.titleImage.setImageURI(Uri.parse(mDatasetStrip.get(i).getFirstPanel().getImagePath()));
+        } else{
+            holder.titleImage.setImageResource(mDatasetStrip.get(i).getFirstPanel().getImageID());
+        }
+
         // ^ later on we'll have to check if it is actually on the SD card
         holder.stripTitle.setText(mDatasetStrip.get(i).getStripTitle());
         holder.creatorUsername.setText(mDatasetStrip.get(i).getOwnerUsername());

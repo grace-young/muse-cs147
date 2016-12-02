@@ -1,5 +1,6 @@
 package example.com.gracie.muse;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,12 +12,16 @@ import android.view.View;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private StripDataHolder holder;
+
+    private static final int NEW_STRIP_RESULT = 147;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +54,42 @@ public class MainActivity extends AppCompatActivity {
         // holder.getData() returns an arraylist of all the strip objects
         String arrayAsString = new Gson().toJson(holder.getData());
         intent.putExtra("striparray", arrayAsString);
-        startActivity(intent);
+        startActivityForResult(intent, NEW_STRIP_RESULT);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == NEW_STRIP_RESULT) {
+            if(resultCode == Activity.RESULT_OK){
+                String arrayAsString =data.getStringExtra("striparray");
+
+//                String arrayAsString = getIntent().getExtras().getString("striparray");
+                List<Strip> list = Arrays.asList(new Gson().fromJson(arrayAsString, Strip[].class));
+                ArrayList<Strip> arrStrip = new ArrayList<Strip>(list); //hopefully converts ??????
+
+                holder.resetStripArray(arrStrip);
+                Log.d("datas", "RESET THE STRIP ARR");
+// ????????????????????????????/
+                mAdapter = new AllStripAdapter(holder.getData());
+                mAdapter.notifyDataSetChanged();
+                mRecyclerView.setAdapter(mAdapter);
+                //mRecyclerView.invalidate();
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+    }//onActivityResult
+
 
     private StripDataHolder initializeData(){
         holder = StripDataHolder.getInstance();
 //        ArrayList<Strip> strips = StripDataHolder.getInstance().getData();
+        if (holder.getData().size() > 0){
+            // This has already been initalized
+            return holder;
+        }
         Strip newStrip = new Strip("first gracie title", "gracie");
         newStrip.addPanel("shannon", R.drawable.cat_0);
         holder.addNewStrip(newStrip);
