@@ -27,11 +27,13 @@
         android:layout_weight="1"/>
 
 
-    <Button
+    <example.com.gracie.muse.CButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="createNewStrip"
         android:layout_gravity="center|bottom"
+        android:background="@color/cardview_light_background"
         android:layout_weight="0"
-        android:text="@string/create_strip_button"/>
+        android:text="@string/create_strip_button">
+    </example.com.gracie.muse.CButton>
 </LinearLayout>

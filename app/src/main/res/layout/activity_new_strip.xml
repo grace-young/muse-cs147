@@ -61,7 +61,7 @@
             android:text="@string/button_send"
             android:onClick="finishNewStrip"/>
 
-        
+
     </LinearLayout>
 
 

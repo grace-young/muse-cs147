@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setTitle("Explore");
 
         // first put data in
         holder = initializeData();
@@ -108,13 +111,13 @@ public class MainActivity extends AppCompatActivity {
             // This has already been initalized
             return holder;
         }
-        Strip newStrip = new Strip("first gracie title", "gracie");
-        newStrip.addPanel("shannon", R.drawable.cat_0);
+        Strip newStrip = new Strip("Cattatack", "gyoung");
+        newStrip.addPanel("gyoung", R.drawable.cat_0);
         holder.addNewStrip(newStrip);
         Log.d("datas", "added pannel 1 with author shannon to strip first gracie title");
 
-        Strip newStrip2 = new Strip("SECOND2 title", "madison");
-        newStrip2.addPanel("madison", R.drawable.cat_1);
+        Strip newStrip2 = new Strip("Muse-ing", "mgwills");
+        newStrip2.addPanel("mgwills", R.drawable.test_panel);
         holder.addNewStrip(newStrip2);
         Log.d("datas", "added panel 2 to strip SECOND2 title with author madison");
 
