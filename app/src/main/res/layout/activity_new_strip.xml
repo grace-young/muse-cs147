@@ -39,27 +39,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="50dp"
         android:layout_weight="0"
         android:layout_gravity="center|bottom"
         android:gravity="bottom">
 
-        <Button
+        <example.com.gracie.muse.CButton
             android:id="@+id/cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
             android:text="@string/button_cancel"
-            android:onClick="cancelNewStrip"/>
+            android:background="@color/cardview_light_background"
+            android:layout_marginRight="70dp"
+            android:onClick="cancelNewStrip">
+        </example.com.gracie.muse.CButton>
 
-        <Button
+        <example.com.gracie.muse.CButton
             android:id="@+id/ok_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
+            android:layout_gravity="end"
             android:text="@string/button_send"
-            android:onClick="finishNewStrip"/>
+            android:layout_marginLeft="110dp"
+            android:background="@color/cardview_light_background"
+            android:onClick="finishNewStrip">
+
+        </example.com.gracie.muse.CButton>
 
 
     </LinearLayout>
