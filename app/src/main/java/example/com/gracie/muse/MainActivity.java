@@ -2,12 +2,14 @@ package example.com.gracie.muse;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 mAdapter.notifyDataSetChanged();
                 mRecyclerView.setAdapter(mAdapter);
                 //mRecyclerView.invalidate();
+                printData();
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
@@ -82,6 +85,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }//onActivityResult
 
+
+    private void printData(){
+        ArrayList<Strip> stripArray = holder.getData();
+        for(int i = 0; i < stripArray.size(); i++){
+            Log.d("datas", "STRIP: " + stripArray.get(i).toString());
+            ArrayList<Panel> panels = stripArray.get(i).getPanels();
+            for(int p=0; p < panels.size(); p++){
+                Log.d("datas", "  PANELS: created by - " + panels.get(p).getCreatorUsername() + " \n path - "
+                        + panels.get(p).getImagePath());
+            }
+        }
+        Log.d("datas", "finished printing");
+
+        //test_img_view
+    }
 
     private StripDataHolder initializeData(){
         holder = StripDataHolder.getInstance();

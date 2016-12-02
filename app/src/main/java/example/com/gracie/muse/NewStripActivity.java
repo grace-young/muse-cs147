@@ -1,10 +1,17 @@
 package example.com.gracie.muse;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +29,7 @@ import java.util.List;
 public class NewStripActivity extends AppCompatActivity {
 
     private static final int SELECT_PICTURE = 100;
+    private static final int REQUEST_PERMISSION = 101;
     private ImageButton imgButton;
 
     private String selectedImgUriPath = null; // use Uri.parse() to get back to URI
@@ -32,6 +40,13 @@ public class NewStripActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_strip);
+
+        EditText tx = (EditText) findViewById(R.id.edit_title);
+        Typeface font = Typeface.createFromAsset(getAssets(),
+                "fonts/Montserrat-Regular.ttf");
+        tx.setTypeface(font);
+
+
 
         setTitle("Create New Strip");
 
@@ -51,10 +66,11 @@ public class NewStripActivity extends AppCompatActivity {
     public void finishNewStrip(View view) {
         // Called when "OK" button is tapped
         Log.d("datas", "inside finishNewStrip method");
-        EditText editTitle = (EditText) findViewById(R.id.edit_blurb);
+        EditText editTitle = (EditText) findViewById(R.id.edit_title);
 
         // Need to create a new Strip
         Strip newStrip = new Strip(editTitle.getText().toString(), "owner");
+        Log.d("datas", "The title set is: " + editTitle.getText().toString());
         // add a panel to that Strip
                     // -1 signifies that it is NOT in the res folder.
         Panel newPanel = new Panel("owner", selectedImgUriPath, -1);
@@ -90,6 +106,7 @@ public class NewStripActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
+
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
     }
 
@@ -99,17 +116,52 @@ public class NewStripActivity extends AppCompatActivity {
                 // Get the url from data
                 Uri selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
+
                     // Get the path from the Uri
                     String path = getPathFromURI(selectedImageUri);
+                    String selectedImagePath;
+
                     Log.i("datas", "Image Path : " + path);
                     Log.d("datas", "URI: " + selectedImageUri);
+
+                    // CONSENT
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                            && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                REQUEST_PERMISSION);
+                        //dialog.dismiss();
+                        return;
+                    }
+
                     // Set the image in ImageView
-                    selectedImgUriPath = selectedImageUri.toString();
+                    //selectedImgUriPath = selectedImageUri.toString();
+                    selectedImagePath = ImageFilePath.getPath(getApplicationContext(), selectedImageUri);
+                    selectedImgUriPath = selectedImagePath;
                     imgButton.setImageURI(selectedImageUri);
+                    Log.i("datas", "img file path "+selectedImagePath);
                 }
             }
         }
     }
+
+    @Override
+    public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted.
+                // Set the image in ImageView
+                //selectedImgUriPath = selectedImageUri.toString();
+
+                Log.i("datas", "permission granted");
+            } else {
+                // User refused to grant permission.
+                Log.d("datas", "no permision");
+            }
+        }
+    }
+
+
 
     /* Get the real path from the URI */
     public String getPathFromURI(Uri contentUri) {

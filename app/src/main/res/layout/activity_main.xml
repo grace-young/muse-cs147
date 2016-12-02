@@ -11,6 +11,12 @@
     android:orientation="vertical"
     tools:context="example.com.gracie.muse.MainActivity">
 
+<!--    <ImageView
+        android:id="@+id/test_img_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@color/colorAccent"/> -->
+
     <!-- A RecyclerView with some commonly used attributes -->
     <!-- Will display the current strips -->
     <android.support.v7.widget.RecyclerView
@@ -19,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"/>
+
 
     <Button
         android:layout_width="match_parent"

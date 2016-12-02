@@ -11,10 +11,12 @@
     android:orientation="vertical"
     tools:context="example.com.gracie.muse.NewStripActivity">
 
-    <EditText android:id="@+id/edit_title"
+    <example.com.gracie.muse.CEditText
+        android:id="@+id/edit_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_title" />
+        android:hint="@string/edit_title" >
+    </example.com.gracie.muse.CEditText>
 
     <!-- Button to insert from gallery -->
 
@@ -22,13 +24,15 @@
         android:id="@+id/image_selected"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:src="@drawable/cat_4"
+        android:src="@drawable/tap_to_upload"
         android:onClick="uploadPhoto"/>
 
-    <EditText android:id="@+id/edit_blurb"
+    <example.com.gracie.muse.CEditText
+        android:id="@+id/edit_blurb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_blurb" />
+        android:hint="@string/edit_blurb">
+    </example.com.gracie.muse.CEditText>
 
 
     <LinearLayout
@@ -38,14 +42,7 @@
         android:layout_weight="0"
         android:layout_gravity="center|bottom"
         android:gravity="bottom">
-        <Button
-            android:id="@+id/ok_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:text="@string/button_send"
-            android:onClick="finishNewStrip"/>
+
         <Button
             android:id="@+id/cancel_button"
             android:layout_width="wrap_content"
@@ -54,6 +51,17 @@
             android:layout_alignParentRight="true"
             android:text="@string/button_cancel"
             android:onClick="cancelNewStrip"/>
+
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/button_send"
+            android:onClick="finishNewStrip"/>
+
+        
     </LinearLayout>
 
 
