@@ -8,12 +8,15 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private StripDataHolder holder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // first put data in
-        StripDataHolder holder = initializeData();
+        holder = initializeData();
 
         mRecyclerView = (RecyclerView)findViewById(R.id.rv);
 
@@ -43,11 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void createNewStrip(View view) {
         Intent intent = new Intent(this, NewStripActivity.class);
+        // holder.getData() returns an arraylist of all the strip objects
+        String arrayAsString = new Gson().toJson(holder.getData());
+        intent.putExtra("striparray", arrayAsString);
         startActivity(intent);
     }
 
     private StripDataHolder initializeData(){
-        StripDataHolder holder = StripDataHolder.getInstance();
+        holder = StripDataHolder.getInstance();
 //        ArrayList<Strip> strips = StripDataHolder.getInstance().getData();
         Strip newStrip = new Strip("first gracie title", "gracie");
         newStrip.addPanel("shannon", R.drawable.cat_0);

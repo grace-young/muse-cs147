@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Muse</string>
-    <string name="title_activity_new_strip">NewStripActivity</string>
-    <string name="edit_title">Edit</string>
-    <string name="button_send">Send</string>
+    <string name="title_activity_new_strip">Create New Strip</string>
+    <string name="edit_title">Enter title</string>
+    <string name="button_send">OK</string>
     <string name="create_strip_button">Create New Strip</string>
 </resources>
