@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Muse.iml" filepath="$PROJECT_DIR$/Muse.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/muse-cs147-test-push.iml" filepath="$PROJECT_DIR$/muse-cs147-test-push.iml" />
     </modules>
   </component>
 </project>
