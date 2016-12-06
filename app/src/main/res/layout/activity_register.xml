@@ -39,6 +39,7 @@
             <example.com.gracie.muse.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
                 android:hint="@string/enter_username"></example.com.gracie.muse.CustomTextView>
 
             <!--gotta check if the username/email is unique-->
@@ -60,6 +61,7 @@
             <example.com.gracie.muse.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
                 android:text="@string/enter_email"></example.com.gracie.muse.CustomTextView>
 
 
@@ -82,6 +84,7 @@
             <example.com.gracie.muse.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
                 android:text="@string/password"></example.com.gracie.muse.CustomTextView>
 
             <example.com.gracie.muse.CEditText
@@ -94,15 +97,16 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="end|bottom"
+            android:gravity="center|bottom"
             android:orientation="horizontal">
 
             <example.com.gracie.muse.CButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
-                android:color="@color/cardview_light_background"
-                android:text="@string/button_ok"
+                android:background="@android:color/transparent"
+                android:text="@string/button_create_account"
+                android:textSize="18dp"
                 android:textColor="@color/colorAccent"></example.com.gracie.muse.CButton>
         </LinearLayout>
     </LinearLayout>

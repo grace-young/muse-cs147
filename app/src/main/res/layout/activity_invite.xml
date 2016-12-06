@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_invite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="example.com.gracie.muse.Invite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="267dp"
+        android:orientation="vertical">
+
+        <AutoCompleteTextView
+            android:id="@+id/find_users"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search users" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <example.com.gracie.muse.CEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_subject"></example.com.gracie.muse.CEditText>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <example.com.gracie.muse.CEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:hint="@string/enter_message"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center|bottom"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <example.com.gracie.muse.CButton
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="70dp"
+            android:background="@android:color/transparent"
+            android:onClick="cancelNewStrip"
+            android:text="@string/button_cancel"></example.com.gracie.muse.CButton>
+
+        <example.com.gracie.muse.CButton
+            android:id="@+id/ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginLeft="110dp"
+            android:background="@android:color/transparent"
+            android:onClick="finishNewStrip"
+            android:textColor="@color/colorAccent"
+            android:text="@string/button_invite">
+
+        </example.com.gracie.muse.CButton>
+
+
+    </LinearLayout>
+
+</LinearLayout>
