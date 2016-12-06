@@ -2,8 +2,17 @@
     <string name="app_name">Muse</string>
     <string name="title_activity_new_strip">Create New Strip</string>
     <string name="edit_title">Enter title</string>
-    <string name="button_send">OK</string>
+    <string name="button_next">NEXT</string>
+    <string name="button_ok">OK</string>
     <string name="create_strip_button">Create New Strip</string>
     <string name="button_cancel">CANCEL</string>
-    <string name="edit_blurb">Enter the panel\'s \"blurb\"</string>
+    <string name="edit_blurb">Enter a \"blurb\"</string>
+    <string name="add_tags">Tags</string>
+
+    <string name="title_activity_register">Register</string>
+    <string name="create_account">Create an Account</string>
+    <string name="enter_username">Username</string>
+    <string name="enter_email">Email</string>
+    <string name="password">Password</string>
+
 </resources>

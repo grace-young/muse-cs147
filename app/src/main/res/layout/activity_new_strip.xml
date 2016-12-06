@@ -4,19 +4,18 @@
     android:id="@+id/activity_new_strip"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     tools:context="example.com.gracie.muse.NewStripActivity">
 
     <example.com.gracie.muse.CEditText
         android:id="@+id/edit_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_title" >
-    </example.com.gracie.muse.CEditText>
+        android:hint="@string/edit_title"></example.com.gracie.muse.CEditText>
 
     <!-- Button to insert from gallery -->
 
@@ -24,45 +23,43 @@
         android:id="@+id/image_selected"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:src="@drawable/tap_to_upload"
-        android:onClick="uploadPhoto"/>
+        android:onClick="uploadPhoto"
+        android:src="@drawable/tap_to_upload" />
 
     <example.com.gracie.muse.CEditText
         android:id="@+id/edit_blurb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_blurb">
-    </example.com.gracie.muse.CEditText>
+        android:hint="@string/edit_blurb"></example.com.gracie.muse.CEditText>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_gravity="center|bottom"
         android:layout_marginTop="50dp"
         android:layout_weight="0"
-        android:layout_gravity="center|bottom"
-        android:gravity="bottom">
+        android:gravity="bottom"
+        android:orientation="horizontal">
 
         <example.com.gracie.muse.CButton
             android:id="@+id/cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_cancel"
-            android:background="@color/cardview_light_background"
             android:layout_marginRight="70dp"
-            android:onClick="cancelNewStrip">
-        </example.com.gracie.muse.CButton>
+            android:background="@color/cardview_light_background"
+            android:onClick="cancelNewStrip"
+            android:text="@string/button_cancel"></example.com.gracie.muse.CButton>
 
         <example.com.gracie.muse.CButton
             android:id="@+id/ok_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="@string/button_send"
             android:layout_marginLeft="110dp"
             android:background="@color/cardview_light_background"
-            android:onClick="finishNewStrip">
+            android:onClick="finishNewStrip"
+            android:text="@string/button_next">
 
         </example.com.gracie.muse.CButton>
 

@@ -40,21 +40,21 @@ public class CustomTextView extends TextView {
 
     private void init() {
         Typeface font = Typeface.createFromAsset(getContext().getAssets(),
-                "fonts/Montserrat-Regular.ttf");
+                "fonts/Montserrat-Light.otf");
         this.setTypeface(font);
     }
 
     @Override
     public void setTypeface(Typeface tf, int style) {
         tf = Typeface.createFromAsset(getContext().getAssets(),
-                "fonts/Montserrat-Regular.ttf");
+                "fonts/Montserrat-Light.otf");
         super.setTypeface(tf, style);
     }
 
     @Override
     public void setTypeface(Typeface tf) {
         tf = Typeface.createFromAsset(getContext().getAssets(),
-                "fonts/Montserrat-Regular.ttf");
+                "fonts/Montserrat-Light.otf");
         super.setTypeface(tf);
     }
 }
