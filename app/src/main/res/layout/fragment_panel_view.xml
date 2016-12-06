@@ -1,0 +1,39 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="example.com.gracie.muse.PanelView">
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop" />
+
+            <example.com.gracie.muse.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="By user"></example.com.gracie.muse.CustomTextView>
+
+            <example.com.gracie.muse.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:text="this is where the blurb goes"></example.com.gracie.muse.CustomTextView>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</FrameLayout>

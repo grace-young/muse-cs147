@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.support.v4.app.FragmentActivity;
 
 import com.google.gson.Gson;
 
@@ -175,6 +176,7 @@ public class NewStripActivity extends AppCompatActivity {
         cursor.close();
         return res;
     }
+
 
 
 }

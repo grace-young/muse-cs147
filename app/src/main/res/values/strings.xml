@@ -10,6 +10,11 @@
     <string name="button_cancel">CANCEL</string>
     <string name="edit_blurb">Enter a \"blurb\"</string>
     <string name="add_tags">Tags</string>
+    <string name="alert_title">Your chain needs a title!</string>
+
+    <string name="explore">Explore</string>
+    <string name="onboard_explore">Browse through the explore feed for inspiring chains.
+                                    Click on a chain for a closer look.</string>
 
     <string name="title_activity_register">Register</string>
     <string name="create_account">Create an Account</string>
@@ -112,5 +117,8 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

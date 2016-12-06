@@ -38,7 +38,9 @@
         <activity
             android:name=".Profile"
             android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PanelViewSlide" />
+        <activity android:name=".Onboarding1Explore"></activity>
     </application>
 
 </manifest>

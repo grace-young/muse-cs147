@@ -55,11 +55,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createNewStrip(View view) {
-        Intent intent = new Intent(this, NewStripActivity.class);
+        Intent intent = new Intent(this, PanelViewSlide.class);
+        startActivity(intent);
         // holder.getData() returns an arraylist of all the strip objects
-        String arrayAsString = new Gson().toJson(holder.getData());
+       /* String arrayAsString = new Gson().toJson(holder.getData());
         intent.putExtra("striparray", arrayAsString);
-        startActivityForResult(intent, NEW_STRIP_RESULT);
+        startActivityForResult(intent, NEW_STRIP_RESULT);*/
     }
 
     @Override
@@ -111,8 +112,9 @@ public class MainActivity extends AppCompatActivity {
             // This has already been initalized
             return holder;
         }
-        Strip newStrip = new Strip("Cattatack", "gyoung");
-        newStrip.addPanel("gyoung", R.drawable.cat_0);
+        Strip newStrip = new Strip("Dunces & Dragons", "gyoung");
+        newStrip.addPanel("shannwu", R.drawable.demo_panel);
+        newStrip.addPanel("gyoung", R.drawable.cat_3);
         holder.addNewStrip(newStrip);
         Log.d("datas", "added pannel 1 with author shannon to strip first gracie title");
 
