@@ -13,9 +13,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="267dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:background="@android:color/darker_gray"/>
         <AutoCompleteTextView
             android:id="@+id/find_users"
             android:layout_width="match_parent"
@@ -36,12 +40,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray" />
-
-        <example.com.gracie.muse.CEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="top"
-            android:hint="@string/enter_message"/>
 
     </LinearLayout>
 

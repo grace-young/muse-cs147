@@ -43,7 +43,7 @@
     <string name="password">Password</string>
     <string name="button_create_account">SIGN UP</string>
 
-    <string name="enter_subject">Enter a subject</string>
+    <string name="enter_subject">Contribute to</string>
     <string name="enter_message">Type a message…</string>
     <string name="button_invite">Invite</string>
     <string name="title_activity_profile">Profile</string>
