@@ -3,6 +3,7 @@ package example.com.gracie.muse;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +54,7 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
         // set the view's size, margins, paddings and layout parameters
 
         StripViewHolder svh = new StripViewHolder(v);
+//        v.setOnClickListener(viewThisStrip); // could be issue because not svh?????
         return svh;
     }
 
@@ -62,6 +64,7 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
 
+        final int i_position = i;
 
         if(mDatasetStrip.get(i).getFirstPanel().getImageID() < 0){
             // FROM URI
@@ -71,8 +74,17 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
         }
 
         // ^ later on we'll have to check if it is actually on the SD card
-        holder.stripTitle.setText(mDatasetStrip.get(i).getStripTitle());
+        holder.stripTitle.setText(mDatasetStrip.get(i).getStripTitle());  // + " | "
         holder.creatorUsername.setText(mDatasetStrip.get(i).getOwnerUsername());
+
+        holder.cv.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Log.d("datas", "WOAH THIS WAS CLICKED "+ Integer.toString(i_position));
+            }
+
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)

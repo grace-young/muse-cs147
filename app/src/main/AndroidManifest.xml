@@ -18,10 +18,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-           <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
-           </intent-filter>
+            </intent-filter>
         </activity>
         <activity android:name=".NewStripActivity" />
         <!--
@@ -33,16 +34,13 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".Register" />
-        <activity android:name=".Invite" />
+        <activity android:name=".InviteActivity" />
         <activity
             android:name=".Profile"
             android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Onboarding1Explore" />
-        <activity android:name=".OnboardingWelcome"/>
-
-        <activity android:name=".OnboardingPanelIntro" />
-        <activity android:name=".OnboardingStripIntro"></activity>
+        <activity android:name=".PanelViewSlideActivity" />
+        <activity android:name=".Onboarding1Explore"></activity>
     </application>
 
 </manifest>
