@@ -106,7 +106,7 @@
                 android:layout_gravity="end|bottom"
                 android:background="@android:color/transparent"
                 android:text="@string/button_create_account"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:textColor="@color/colorAccent"></example.com.gracie.muse.CButton>
         </LinearLayout>
     </LinearLayout>

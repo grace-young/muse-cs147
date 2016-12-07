@@ -19,19 +19,23 @@
         <example.com.gracie.muse.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:layout_gravity="center"
             android:text="@string/explore"
+            android:layout_marginBottom="10dp"
             android:textSize="24dp"
             android:color="@color/colorPrimaryDark"/>
         <ImageView
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:layout_height="300dp"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/explore_scn"/>
 
         <example.com.gracie.muse.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
             android:textColor="@color/colorPrimaryDark"
             android:text="@string/onboard_explore"></example.com.gracie.muse.CustomTextView>

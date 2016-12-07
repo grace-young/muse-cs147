@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("datas", "IN ON CREATE");
     }
 
+
     public void createNewStrip(View view) {
         Intent intent = new Intent(this, PanelViewSlide.class);
         startActivity(intent);
