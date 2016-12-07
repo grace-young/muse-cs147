@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_onboarding_strip_intro"
+    android:id="@+id/activity_onboarding_create"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="example.com.gracie.muse.OnboardingStripIntro">
+    tools:context="example.com.gracie.muse.OnboardingCreate">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,37 +19,27 @@
         <example.com.gracie.muse.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
             android:layout_marginTop="40dp"
-            android:color="@color/colorPrimaryDark"
-            android:text="@string/strip"
-            android:textSize="24dp" />
-
+            android:layout_gravity="center"
+            android:text="@string/create"
+            android:layout_marginBottom="10dp"
+            android:textSize="24dp"
+            android:color="@color/colorPrimaryDark"/>
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/demo_strip" />
+            android:layout_height="250dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/create_scn"/>
 
         <example.com.gracie.muse.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:padding="10dp"
-            android:text="@string/onboard_strip1"
-            android:textColor="@color/colorPrimaryDark"></example.com.gracie.muse.CustomTextView>
-
-        <example.com.gracie.muse.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:gravity="center_horizontal"
-            android:text="@string/onboard_strip3"
-            android:textColor="@color/colorPrimaryDark" />
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/onboard_create"></example.com.gracie.muse.CustomTextView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,19 +55,13 @@
                 android:layout_gravity="center|bottom"
                 android:background="@color/colorAccent"
                 android:padding="12dp"
-                android:onClick="toPanel"
-                android:text="@string/button_strip_to_panel"
+                android:onClick="toCreate"
+                android:text="@string/button_sounds_good"
                 android:textColor="@android:color/white"
-                android:textSize="20dp"></example.com.gracie.muse.CButton>
-
-            <example.com.gracie.muse.CButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/skip"
-                android:onClick="toMain"
-                android:background="@android:color/transparent"></example.com.gracie.muse.CButton>
+                android:textSize="18dp"></example.com.gracie.muse.CButton>
 
         </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

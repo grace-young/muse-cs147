@@ -14,25 +14,27 @@
 
     <string name="welcome">Welcome to Muse!</string>
     <string name="onboard_value_prop">Inspire others. Inspire yourself.</string>
-    <string name="onboard_welcome">We're a community that fosters collaborative storytelling.</string>
-    <string name="button_start">LET'S GET STARTED</string>
+    <string name="onboard_welcome">We\'re a community that fosters collaborative storytelling.</string>
+    <string name="button_start">LET\'S GET STARTED</string>
     <string name="strip">This is a strip.</string>
     <string name="onboard_strip1">This is what we call a story in Muse.</string>
-    <string name="onboard_strip3">It's made up of panels drawn, written, photographed by other users.</string>
-    <string name="button_strip_to_panel">WHAT'S A PANEL?</string>
+    <string name="onboard_strip3">It\'s made up of panels drawn, written, photographed by other users.</string>
+    <string name="button_strip_to_panel">WHAT\'S A PANEL?</string>
     <string name="panel">This is a panel.</string>
     <string name="onboard_panel1">This is how each user contributes to a story.</string>
     <string name="onboard_panel2">Think of it as a chapter in a book, an episode in a show...or a panel in a comic strip.</string>
     <string name="button_got_it">GOT IT</string>
     <string name="explore">Explore</string>
+    <string name="skip">SKIP</string>
     <string name="onboard_explore">Browse through the explore feed for inspiring strips.
                                     Click on a strip for a closer look.</string>
+    <string name="button_explore_to_contribute">HOW CAN I ADD TO A STRIP?</string>
     <string name="contribute">Contribute</string>
     <string name="onboard_contribute1">Continue the story by contributing your very own panel to a strip.</string>
-    <string name="button_contribute_to_create">OR IF YOU HAVE YOUR OWN IDEA...</string>
-    <string name="create">Create a Strip</string>
+    <string name="button_contribute_to_create">OR IF YOU HAVE YOUR OWN IDEA…</string>
+    <string name="create">Create</string>
     <string name="onboard_create">Create your very own strip by uploading the very first panel.</string>
-    <string name="button_sounds_good">LET'S GET MUSING!</string>
+    <string name="button_sounds_good">LET\'S GET MUSING!</string>
 
     <string name="title_activity_register">Register</string>
     <string name="create_account">Create an Account</string>
@@ -42,7 +44,7 @@
     <string name="button_create_account">SIGN UP</string>
 
     <string name="enter_subject">Enter a subject</string>
-    <string name="enter_message">Type a message...</string>
+    <string name="enter_message">Type a message…</string>
     <string name="button_invite">Invite</string>
     <string name="title_activity_profile">Profile</string>
     <string name="large_text">

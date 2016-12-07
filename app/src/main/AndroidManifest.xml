@@ -40,7 +40,12 @@
             android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PanelViewSlideActivity" />
-        <activity android:name=".Onboarding1Explore"></activity>
+        <activity android:name=".Onboarding1Explore" />
+        <activity android:name=".OnboardingWelcome" />
+        <activity android:name=".OnboardingPanelIntro" />
+        <activity android:name=".OnboardingStripIntro" />
+        <activity android:name=".OnboardingContribute" />
+        <activity android:name=".OnboardingCreate"></activity>
     </application>
 
 </manifest>

@@ -53,13 +53,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void createNewStrip(View view) {
-        Intent intent = new Intent(this, PanelViewSlideActivity.class);
+        Intent intent = new Intent(this, Register.class);
         startActivity(intent);
         // holder.getData() returns an arraylist of all the strip objects
        /* String arrayAsString = new Gson().toJson(holder.getData());
         intent.putExtra("striparray", arrayAsString);
         startActivityForResult(intent, NEW_STRIP_RESULT);*/
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

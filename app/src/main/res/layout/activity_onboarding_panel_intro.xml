@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:marginTop="20dp"
+            android:layout_marginTop="20dp"
             android:padding="10dp"
             android:text="@string/onboard_panel1"
             android:textColor="@color/colorPrimaryDark"></example.com.gracie.muse.CustomTextView>
@@ -69,7 +69,16 @@
                 android:textColor="@android:color/white"
                 android:textSize="20dp"></example.com.gracie.muse.CButton>
 
+            <example.com.gracie.muse.CButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/skip"
+                android:onClick="toMain"
+                android:background="@android:color/transparent"></example.com.gracie.muse.CButton>
+
         </LinearLayout>
+
+
     </LinearLayout>
 
 </RelativeLayout>

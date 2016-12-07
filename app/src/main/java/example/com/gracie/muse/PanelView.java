@@ -67,7 +67,6 @@ public class PanelView extends Fragment {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_panel_view, container, false);
-
         return rootView;
     }
 

@@ -5,17 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Onboarding1Explore extends AppCompatActivity {
+public class OnboardingCreate extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_onboarding1_explore);
-    }
-
-    public void toContribute(View view) {
-        Intent intent = new Intent(this, OnboardingContribute.class);
-        startActivity(intent);
+        setContentView(R.layout.activity_onboarding_create);
     }
 
     public void toMain(View view) {

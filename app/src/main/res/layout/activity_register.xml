@@ -105,6 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
                 android:background="@android:color/transparent"
+                android:onClick="toOnboarding"
                 android:text="@string/button_create_account"
                 android:textSize="20dp"
                 android:textColor="@color/colorAccent"></example.com.gracie.muse.CButton>
