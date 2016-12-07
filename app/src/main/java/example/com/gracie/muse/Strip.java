@@ -51,6 +51,24 @@ public class Strip {
         return panelsInStrip;
     }
 
+    public ArrayList<Integer> getPanelIds(){
+        ArrayList<Integer> toReturn = new ArrayList<>();
+        for(int i = 0; i < panelsInStrip.size(); i++){
+            Panel panel = panelsInStrip.get(i);
+            toReturn.add(panel.getImageID());
+        }
+        return toReturn;
+    }
+
+    public ArrayList<String> getPanelPaths(){
+        ArrayList<String> toReturn = new ArrayList<>();
+        for(int i = 0; i < panelsInStrip.size(); i++){
+            Panel panel = panelsInStrip.get(i);
+            toReturn.add(panel.getImagePath());
+        }
+        return toReturn;
+    }
+
     public String getOwnerUsername(){
         return ownerUsername;
     }
