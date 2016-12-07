@@ -32,6 +32,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-appindexing:9.8.0'
     compile 'com.android.support:support-v4:23.4.0'
     testCompile 'junit:junit:4.12'
+    compile files('C:/Users/Shannon/Android Studio Projects/muse-cs147-test-push/libs/tokenautocomplete-2.0.8.jar')
 }
 
 
