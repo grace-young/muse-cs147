@@ -1,5 +1,7 @@
 package example.com.gracie.muse;
 
+import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -7,10 +9,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.widget.Toast;
 
-public class PanelViewSlide extends FragmentActivity {
+import static java.security.AccessController.getContext;
 
-    private static final int NUM_PAGES = 2;
+public class PanelViewSlideActivity extends FragmentActivity
+        implements PanelView.OnFragmentInteractionListener{
+
+    private int NUM_PAGES = 2; // number of panels in strip object
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -32,6 +39,15 @@ public class PanelViewSlide extends FragmentActivity {
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+
+
+
+
+    }
+
+
+    public void onFragmentInteraction(Uri uri){
+        Log.d("datas", "HELLO FROM FRAGMENT");
     }
 
     @Override
@@ -65,5 +81,8 @@ public class PanelViewSlide extends FragmentActivity {
             return NUM_PAGES;
         }
     }
+
+
+
 }
 

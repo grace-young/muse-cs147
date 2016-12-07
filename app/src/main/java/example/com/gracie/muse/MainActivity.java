@@ -2,15 +2,12 @@ package example.com.gracie.muse;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -55,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createNewStrip(View view) {
-        Intent intent = new Intent(this, PanelViewSlide.class);
+        Intent intent = new Intent(this, PanelViewSlideActivity.class);
         startActivity(intent);
         // holder.getData() returns an arraylist of all the strip objects
        /* String arrayAsString = new Gson().toJson(holder.getData());
@@ -70,25 +67,21 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == Activity.RESULT_OK){
                 String arrayAsString =data.getStringExtra("striparray");
 
-//                String arrayAsString = getIntent().getExtras().getString("striparray");
                 List<Strip> list = Arrays.asList(new Gson().fromJson(arrayAsString, Strip[].class));
                 ArrayList<Strip> arrStrip = new ArrayList<Strip>(list); //hopefully converts ??????
 
                 holder.resetStripArray(arrStrip);
                 Log.d("datas", "RESET THE STRIP ARR");
-// ????????????????????????????/
                 mAdapter = new AllStripAdapter(holder.getData());
                 mAdapter.notifyDataSetChanged();
                 mRecyclerView.setAdapter(mAdapter);
-                //mRecyclerView.invalidate();
                 printData();
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
             }
         }
-    }//onActivityResult
-
+    }
 
     private void printData(){
         ArrayList<Strip> stripArray = holder.getData();
@@ -102,12 +95,10 @@ public class MainActivity extends AppCompatActivity {
         }
         Log.d("datas", "finished printing");
 
-        //test_img_view
     }
 
     private StripDataHolder initializeData(){
         holder = StripDataHolder.getInstance();
-//        ArrayList<Strip> strips = StripDataHolder.getInstance().getData();
         if (holder.getData().size() > 0){
             // This has already been initalized
             return holder;
