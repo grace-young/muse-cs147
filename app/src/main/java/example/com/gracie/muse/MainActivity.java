@@ -105,17 +105,43 @@ public class MainActivity extends AppCompatActivity {
             // This has already been initalized
             return holder;
         }
-        Strip newStrip = new Strip("Dunces & Dragons", "gyoung");
-        newStrip.addPanel("shannwu", R.drawable.demo_panel);
-        newStrip.addPanel("gyoung", R.drawable.cat_3);
-        holder.addNewStrip(newStrip);
-        Log.d("datas", "added pannel 1 with author shannon to strip first gracie title");
+//        Strip newStrip = new Strip("Dunces & Dragons", "gyoung");
+//        newStrip.addPanel("shannwu", R.drawable.demo_panel);
+//        newStrip.addPanel("gyoung", R.drawable.cat_3);
+//        holder.addNewStrip(newStrip);
+//        Log.d("datas", "added pannel 1 with author shannon to strip first gracie title");
+//
+//        Strip newStrip2 = new Strip("Muse-ing", "mgwills");
+//        newStrip2.addPanel("mgwills", R.drawable.test_panel);
+//        holder.addNewStrip(newStrip2);
+//        Log.d("datas", "added panel 2 to strip SECOND2 title with author madison");
 
-        Strip newStrip2 = new Strip("Muse-ing", "mgwills");
-        newStrip2.addPanel("mgwills", R.drawable.test_panel);
-        holder.addNewStrip(newStrip2);
-        Log.d("datas", "added panel 2 to strip SECOND2 title with author madison");
+        Strip balloonStrip = new Strip ("Lost Balloon", "madawg");
+        balloonStrip.addPanel("madawg", R.drawable.b_elephant);
+        balloonStrip.addPanel("gracebyung", R.drawable.b_balloon);
+        balloonStrip.addPanel("shannwooo", R.drawable.b_up);
+        holder.addNewStrip(balloonStrip);
 
+        Strip peopleStrip = new Strip ("Stick Figures", "shannwoooo");
+        peopleStrip.addPanel("shannwooo", R.drawable.p_stick_figure);
+        peopleStrip.addPanel("gracebyung", R.drawable.p_man_drawing);
+        holder.addNewStrip(peopleStrip);
+
+        Strip leavesStrip = new Strip ("Leaves", "gracebyung");
+        leavesStrip.addPanel("gracebyung", R.drawable.l_leaves);
+        leavesStrip.addPanel("shannwooo", R.drawable.l_tea_leaves);
+        leavesStrip.addPanel("madawg", R.drawable.l_prof_trelawney);
+        leavesStrip.addPanel("gracebyung", R.drawable.l_prof_trelawney);
+        leavesStrip.addPanel("madawg", R.drawable.l_tori_kelley);
+        leavesStrip.addPanel("shannwooo", R.drawable.l_guitar);
+        leavesStrip.addPanel("shannwooo", R.drawable.l_sun_beach);
+        leavesStrip.addPanel("shannwooo", R.drawable.l_palm_tree);
+        leavesStrip.addPanel("shannwooo", R.drawable.l_palm);
+
+        Strip differentStrip = new Strip ("Different", "madawg");
+        differentStrip.addPanel("madawg", R.drawable.d_dumbo_and_stitch);
+        differentStrip.addPanel("gracebyung", R.drawable.d_ugly_duckling);
+        differentStrip.addPanel("shannwooo", R.drawable.d_lyric);
         Log.d("datas", holder.getData().toString());
 
         // Now to create the panels and strip for the cats
