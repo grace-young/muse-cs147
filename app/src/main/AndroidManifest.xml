@@ -46,7 +46,7 @@
         <activity android:name=".OnboardingStripIntro" />
         <activity android:name=".OnboardingContribute" />
         <activity android:name=".OnboardingCreate" />
-        <activity android:name=".StripView"></activity>
+        <activity android:name=".StripViewActivity"></activity>
     </application>
 
 </manifest>

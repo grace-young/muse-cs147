@@ -1,11 +1,15 @@
 package example.com.gracie.muse;
 
+import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -76,8 +80,6 @@ public class PanelViewFragment extends Fragment {
             Log.d("strips", "Username=" + mCreatorUsername + " Blurb=" + mBlurb +
                     " Image Path=" + mImagePath);
 
-
-
         }
     }
 
@@ -88,9 +90,25 @@ public class PanelViewFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_panel_view, container, false);
 
+        CustomTextView text = (CustomTextView) view.findViewById(R.id.creator_username);
+        Typeface font = Typeface.createFromAsset(view.getContext().getAssets(),
+                "fonts/Montserrat-Bold.ttf");
+
+
         Log.d("strips", "INSIDE PANELVIEW");
         TextView tv = (TextView) view.findViewById(R.id.blurb_text);
         tv.setText(mBlurb);
+
+        TextView tv_username = (TextView) view.findViewById(R.id.creator_username);
+        tv_username.setText("Created by: " + mCreatorUsername);
+
+        ImageView iv = (ImageView) view.findViewById(R.id.panel_img);
+        if(mImageID < 0){
+            // This comes from a URI
+            iv.setImageURI(Uri.parse(mImagePath));
+        } else {
+            iv.setImageResource(mImageID);
+        }
         return view;
     }
 /*

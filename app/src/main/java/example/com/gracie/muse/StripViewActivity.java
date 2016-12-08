@@ -16,38 +16,38 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class StripView extends AppCompatActivity {
+public class StripViewActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private StripDataHolder holder;
-    private Strip strip;
-
-
+    private Strip stripToView; // the strip being displayed
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_strip_view);
 
+        // Get the Strip from the previous activity
+        String stripObjAsString = getIntent().getExtras().getString("stripstring");
+        stripToView = new Gson().fromJson(stripObjAsString, Strip.class);
 
 
         mRecyclerView = (RecyclerView)findViewById(R.id.rv);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this); //maybe should be "context" ???
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        // specify an adapter (see also next example)
-
-        mAdapter = new AllStripAdapter(holder.getData());
+        mAdapter = new StripPanelsAdapter(stripToView);
         mRecyclerView.setAdapter(mAdapter);
 
-        Log.d("datas", "IN ON CREATE");
+        CustomTextView cv = (CustomTextView) findViewById(R.id.title_of_strip);
+        cv.setText(stripToView.getStripTitle());
+
+
+
+        Log.d("datas", "IN ON CREATE of StripViewActivity");
     }
 
 

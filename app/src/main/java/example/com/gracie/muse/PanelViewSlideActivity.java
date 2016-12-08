@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -15,7 +16,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 
-public class PanelViewSlideActivity extends FragmentActivity{
+public class PanelViewSlideActivity extends AppCompatActivity{ //FragmentActivity{
         //implements PanelView.OnFragmentInteractionListener{
 
     private int NUM_PAGES = 2; // number of panels in strip object
@@ -51,6 +52,7 @@ public class PanelViewSlideActivity extends FragmentActivity{
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
 
+        setTitle(stripToView.getStripTitle());
 
         Log.d("strips", "in PanelViewSlideActivity");
         Log.d("strips", stripToView.toString());

@@ -64,7 +64,6 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
         // set the view's size, margins, paddings and layout parameters
 
         StripViewHolder svh = new StripViewHolder(v);
-//        v.setOnClickListener(viewThisStrip); // could be issue because not svh?????
         return svh;
     }
 
@@ -98,8 +97,8 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
             public void onClick(View view){
                 Log.d("datas", "WOAH THIS WAS CLICKED "+ Integer.toString(i_position));
                 // Here it should go to the view panel activity
-//                    Intent intent = new Intent(AllStripAdapter.this, PanelViewSlideActivity.class);
-                Intent intent = new Intent(view.getContext(), PanelViewSlideActivity.class);
+                //Intent intent = new Intent(view.getContext(), PanelViewSlideActivity.class);
+                Intent intent = new Intent(view.getContext(), StripViewActivity.class);
                 // Send the Strip as a string
                 String stripAsString = new Gson().toJson(stripAtPos);
                 intent.putExtra("stripstring", stripAsString);
@@ -114,10 +113,6 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
 
 
     }
-
-
-
-
 
 
     // This one decodes the image paths as Uri's
@@ -215,9 +210,6 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
             }
         });
     }
-
-
-
 
 
 
