@@ -23,14 +23,14 @@ public class Strip {
         stripCompleted = false;
     }
 
-    public void addPanel(String username, String imgPath){
-        Panel addedPanel = new Panel(username, imgPath, -1);
+    public void addPanel(String username, String blurb, String imgPath){
+        Panel addedPanel = new Panel(username, blurb, imgPath, -1);
         panelsInStrip.add(addedPanel);
         Log.d("datas", "added panel [img path] to " + stripTitle + " with username " + username);
     }
 
-    public void addPanel(String username, int imgID){
-        Panel addedPanel = new Panel(username, "in_res", imgID);
+    public void addPanel(String username, String blurb, int imgID){
+        Panel addedPanel = new Panel(username, blurb, "in_res", imgID);
         panelsInStrip.add(addedPanel);
         Log.d("datas", "added panel to " + stripTitle + " with username " + username);
     }
@@ -98,6 +98,8 @@ public class Strip {
         for(int i = 0; i < panelsInStrip.size(); i++){
             panelsPrinted += "USERNAME: ";
             panelsPrinted += panelsInStrip.get(i).getCreatorUsername();
+            panelsPrinted += "\tBlurb: ";
+            panelsPrinted += panelsInStrip.get(i).getPanelBlurb();
             panelsPrinted += "\n";
         }
         return stripBegin + "\n" + panelsPrinted;
