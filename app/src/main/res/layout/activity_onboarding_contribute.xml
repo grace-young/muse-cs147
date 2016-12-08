@@ -58,7 +58,7 @@
                 android:onClick="toCreate"
                 android:text="@string/button_contribute_to_create"
                 android:textColor="@android:color/white"
-                android:textSize="18dp"></example.com.gracie.muse.CButton>
+                android:textSize="16dp"></example.com.gracie.muse.CButton>
 
             <example.com.gracie.muse.CButton
                 android:layout_width="match_parent"

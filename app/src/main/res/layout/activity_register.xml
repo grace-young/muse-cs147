@@ -39,13 +39,15 @@
             <example.com.gracie.muse.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:hint="@string/enter_username"></example.com.gracie.muse.CustomTextView>
+                android:textSize="18dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/enter_username"></example.com.gracie.muse.CustomTextView>
 
             <!--gotta check if the username/email is unique-->
             <example.com.gracie.muse.CEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></example.com.gracie.muse.CEditText>
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorPrimary"></example.com.gracie.muse.CEditText>
         </LinearLayout>
 
         <View
@@ -61,13 +63,15 @@
             <example.com.gracie.muse.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18dp"
                 android:text="@string/enter_email"></example.com.gracie.muse.CustomTextView>
 
 
             <example.com.gracie.muse.CEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></example.com.gracie.muse.CEditText>
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorPrimary"></example.com.gracie.muse.CEditText>
 
         </LinearLayout>
 
@@ -84,7 +88,8 @@
             <example.com.gracie.muse.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18dp"
                 android:text="@string/password"></example.com.gracie.muse.CustomTextView>
 
             <example.com.gracie.muse.CEditText

@@ -17,4 +17,9 @@ public class OnboardingPanelIntro extends AppCompatActivity {
         Intent intent = new Intent(this, Onboarding1Explore.class);
         startActivity(intent);
     }
+
+    public void toMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }

@@ -30,8 +30,9 @@
 
             <ImageButton
                 android:id="@+id/image_selected"
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_width="275dp"
+                android:layout_height="275dp"
+                android:layout_gravity="center"
                 android:onClick="uploadPhoto"
                 android:src="@drawable/tap_to_upload"
                 android:adjustViewBounds="true"
@@ -80,8 +81,8 @@
                     android:layout_marginLeft="110dp"
                     android:textColor="@color/colorAccent"
                     android:background="@android:color/transparent"
-                    android:onClick="finishNewStrip"
-                    android:text="@string/button_ok">
+                    android:onClick="toInvite"
+                    android:text="@string/button_create">
 
                 </example.com.gracie.muse.CButton>
 

@@ -17,4 +17,9 @@ public class OnboardingWelcome extends AppCompatActivity {
         Intent intent = new Intent(this, OnboardingStripIntro.class);
         startActivity(intent);
     }
+
+    public void toMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }

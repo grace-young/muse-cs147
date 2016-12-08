@@ -13,28 +13,45 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:background="@android:color/darker_gray"/>
-        <AutoCompleteTextView
-            android:id="@+id/find_users"
+        <example.com.gracie.muse.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Search users" />
+            android:gravity="center"
+            android:padding="5dp"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Success! Your strip has been created."/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
             android:background="@android:color/darker_gray" />
 
-        <example.com.gracie.muse.CEditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_subject"></example.com.gracie.muse.CEditText>
+            android:orientation="vertical">
+
+            <example.com.gracie.muse.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="18dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Invite users to check out your creation:"></example.com.gracie.muse.CustomTextView>
+
+            <AutoCompleteTextView
+                android:id="@+id/find_users"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search users" />
+
+        </LinearLayout>
+
 
         <View
             android:layout_width="match_parent"
@@ -48,7 +65,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="center|bottom"
         android:layout_marginTop="50dp"
-        android:layout_weight="0"
         android:gravity="bottom"
         android:orientation="horizontal">
 
@@ -56,21 +72,25 @@
             android:id="@+id/cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="70dp"
-            android:background="@android:color/transparent"
-            android:onClick="cancelNewStrip"
-            android:text="@string/button_cancel"></example.com.gracie.muse.CButton>
-
-        <example.com.gracie.muse.CButton
-            android:id="@+id/ok_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginLeft="110dp"
+            android:layout_weight="1"
+            android:gravity="center"
             android:background="@android:color/transparent"
             android:onClick="finishNewStrip"
-            android:textColor="@color/colorAccent"
-            android:text="@string/button_invite">
+            android:textSize="16dp"
+            android:text="NO THANKS"></example.com.gracie.muse.CButton>
+
+        <example.com.gracie.muse.CButton
+            android:id="@+id/invite_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginLeft="110dp"
+            android:textSize="16dp"
+            android:background="@android:color/transparent"
+            android:onClick="finishNewStrip"
+            android:text="@string/button_invite"
+            android:textColor="@color/colorAccent">
 
         </example.com.gracie.muse.CButton>
 

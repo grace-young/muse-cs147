@@ -36,6 +36,7 @@ public class NewStripActivity extends AppCompatActivity {
     private String selectedImgUriPath = null; // use Uri.parse() to get back to URI
 
     private ArrayList<Strip> stripArray;
+    private static final int INVITE_CODE = 102;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,24 +48,24 @@ public class NewStripActivity extends AppCompatActivity {
                 "fonts/Montserrat-Regular.ttf");
         tx.setTypeface(font);
 
-
-
         setTitle("Create New Strip");
 
         String arrayAsString = getIntent().getExtras().getString("striparray");
+        Log.d("hello", arrayAsString);
+        Log.d("hello", "why is this so difficult");
         List<Strip> list = Arrays.asList(new Gson().fromJson(arrayAsString, Strip[].class));
         stripArray = new ArrayList<Strip>(list); //hopefully converts ??????
 
         Log.d("datas", "Got data back from Gson");
-        for(int i = 0; i < stripArray.size(); i++){
+        for (int i = 0; i < stripArray.size(); i++) {
             Log.d("datas", stripArray.get(i).toString());
         }
         Log.d("datas", "finished printing");
 
-        imgButton = (ImageButton)findViewById(R.id.image_selected);
+        imgButton = (ImageButton) findViewById(R.id.image_selected);
     }
 
-    public void finishNewStrip(View view) {
+    public ArrayList<Strip> finishNewStrip(View view) {
         // Called when "OK" button is tapped
         Log.d("datas", "inside finishNewStrip method");
         EditText editTitle = (EditText) findViewById(R.id.edit_title);
@@ -73,7 +74,7 @@ public class NewStripActivity extends AppCompatActivity {
         Strip newStrip = new Strip(editTitle.getText().toString(), "owner");
         Log.d("datas", "The title set is: " + editTitle.getText().toString());
         // add a panel to that Strip
-                    // -1 signifies that it is NOT in the res folder.
+        // -1 signifies that it is NOT in the res folder.
         Panel newPanel = new Panel("owner", selectedImgUriPath, -1);
 
         newStrip.addPanel(newPanel);
@@ -81,16 +82,7 @@ public class NewStripActivity extends AppCompatActivity {
         // add it to the ArrayList<Strip>
         // and send that back.
         stripArray.add(newStrip);
-
-        // now return back to the main activity
-        Intent returnIntent = new Intent();
-
-        //       String arrayAsString = new Gson().toJson(holder.getData());
-        String arrayAsString = new Gson().toJson(stripArray);
-
-        returnIntent.putExtra("striparray", arrayAsString);
-        setResult(Activity.RESULT_OK, returnIntent);
-        finish();
+        return stripArray;
     }
 
     public void cancelNewStrip(View view) {
@@ -111,9 +103,29 @@ public class NewStripActivity extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
     }
 
+    public void toInvite(View view) {
+        ArrayList<Strip> stripArray = finishNewStrip(view);
+        Intent intent = new Intent(this, InviteActivity.class);
+
+        //       String arrayAsString = new Gson().toJson(holder.getData());
+        String arrayAsString = new Gson().toJson(stripArray);
+
+        intent.putExtra("striparray", arrayAsString);
+        startActivityForResult(intent, INVITE_CODE);
+
+    }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            if (requestCode == SELECT_PICTURE) {
+            if (requestCode == INVITE_CODE) {
+                // Get the url from data
+                Log.d("hello", "in INVITE CODE");
+                String arrayAsString = data.getStringExtra("striparray");
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("striparray", arrayAsString);
+                setResult(Activity.RESULT_OK, returnIntent);
+                finish();
+            } else if (requestCode == SELECT_PICTURE) {
                 // Get the url from data
                 Uri selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
@@ -139,14 +151,16 @@ public class NewStripActivity extends AppCompatActivity {
                     selectedImagePath = ImageFilePath.getPath(getApplicationContext(), selectedImageUri);
                     selectedImgUriPath = selectedImagePath;
                     imgButton.setImageURI(selectedImageUri);
-                    Log.i("datas", "img file path "+selectedImagePath);
+                    Log.i("datas", "img file path " + selectedImagePath);
                 }
             }
         }
     }
 
+
     @Override
-    public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
+    public void onRequestPermissionsResult(final int requestCode,
+                                           @NonNull final String[] permissions, @NonNull final int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_PERMISSION) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -165,6 +179,7 @@ public class NewStripActivity extends AppCompatActivity {
 
 
     /* Get the real path from the URI */
+
     public String getPathFromURI(Uri contentUri) {
         String res = null;
         String[] proj = {MediaStore.Images.Media.DATA};
@@ -176,7 +191,6 @@ public class NewStripActivity extends AppCompatActivity {
         cursor.close();
         return res;
     }
-
 
 
 }
