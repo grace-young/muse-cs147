@@ -1,4 +1,23 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- fragment_screen_slide_page.xml -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView style="?android:textAppearanceMedium"
+        android:padding="16dp"
+        android:lineSpacingMultiplier="1.2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/blurb_text"
+        android:text="HELLO THIS IS A FRAGMENT STR" />
+</ScrollView>
+
+
+
+
+
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -38,3 +57,4 @@
     </HorizontalScrollView>
 
 </FrameLayout>
+-->

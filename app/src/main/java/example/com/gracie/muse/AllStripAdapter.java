@@ -1,5 +1,6 @@
 package example.com.gracie.muse;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -15,8 +16,12 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import static java.security.AccessController.getContext;
 
 /**
  * Created by Gracie on 12/1/2016.
@@ -72,14 +77,15 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
         final int i_position = i;
 
         // Add animation of the image view here
-        Strip stripAtPos = mDatasetStrip.get(i);
+        final Strip stripAtPos = mDatasetStrip.get(i);
         if(stripAtPos.getFirstPanel().getImageID() < 0){
             // FROM URI
             ArrayList<String> panelImagePaths =  stripAtPos.getPanelPaths();
             holder.titleImage.setImageURI(Uri.parse(stripAtPos.getFirstPanel().getImagePath()));
         } else{
             ArrayList<Integer> panelImageIDs = stripAtPos.getPanelIds();
-            holder.titleImage.setImageResource(stripAtPos.getFirstPanel().getImageID());
+            //holder.titleImage.setImageResource(stripAtPos.getFirstPanel().getImageID());
+            animateIDs(holder.titleImage, panelImageIDs, 0, true);
         }
 
         // ^ later on we'll have to check if it is actually on the SD card
@@ -92,6 +98,15 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
             public void onClick(View view){
                 Log.d("datas", "WOAH THIS WAS CLICKED "+ Integer.toString(i_position));
                 // Here it should go to the view panel activity
+//                    Intent intent = new Intent(AllStripAdapter.this, PanelViewSlideActivity.class);
+                Intent intent = new Intent(view.getContext(), PanelViewSlideActivity.class);
+                // Send the Strip as a string
+                String stripAsString = new Gson().toJson(stripAtPos);
+                intent.putExtra("stripstring", stripAsString);
+                view.getContext().startActivity(intent);
+                       /* String arrayAsString = new Gson().toJson(holder.getData());
+                intent.putExtra("striparray", arrayAsString);
+                startActivityForResult(intent, NEW_STRIP_RESULT);*/
             }
 
         });
@@ -106,12 +121,7 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
 
 
     // This one decodes the image paths as Uri's
-    private void animate(final ImageView imageView, final String imagePaths[], final int imageIndex, final boolean forever) {
-
-        //imageView <-- The View which displays the images
-        //images[] <-- Holds R references to the images to display
-        //imageIndex <-- index of the first image to show in images[]
-        //forever <-- If equals true then after the last image it starts all over again with the first image resulting in an infinite loop. You have been warned.
+    private void animatePaths(final ImageView imageView, final ArrayList<String> imagePaths, final int imageIndex, final boolean forever) {
 
         int fadeInDuration = 500; // Configure time values here
         int timeBetween = 3000;
@@ -119,7 +129,7 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
 
         imageView.setVisibility(View.INVISIBLE);    //Visible or invisible by default - this will apply when the animation ends
         //imageView.setImageResource(images[imageIndex]);
-        imageView.setImageURI(Uri.parse(imagePaths[imageIndex]));
+        imageView.setImageURI(Uri.parse(imagePaths.get(imageIndex)));
 
         Animation fadeIn = new AlphaAnimation(0, 1);
         fadeIn.setInterpolator(new DecelerateInterpolator()); // add this
@@ -138,12 +148,12 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
 
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationEnd(Animation animation) {
-                if (imagePaths.length - 1 > imageIndex) {
-                    animate(imageView, imagePaths, imageIndex + 1,forever); //Calls itself until it gets to the end of the array
+                if (imagePaths.size() - 1 > imageIndex) {
+                    animatePaths(imageView, imagePaths, imageIndex + 1,forever); //Calls itself until it gets to the end of the array
                 }
                 else {
                     if (forever){
-                        animate(imageView, imagePaths, 0,forever);  //Calls itself to start the animation all over again in a loop if forever = true
+                        animatePaths(imageView, imagePaths, 0,forever);  //Calls itself to start the animation all over again in a loop if forever = true
                     }
                 }
             }
@@ -157,13 +167,7 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
     }
 
 
-
-
-
-
-
-
-    private void animate(final ImageView imageView, final int images[], final int imageIndex, final boolean forever) {
+    private void animateIDs(final ImageView imageView, final ArrayList<Integer> images, final int imageIndex, final boolean forever) {
 
         //imageView <-- The View which displays the images
         //images[] <-- Holds R references to the images to display
@@ -175,7 +179,7 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
         int fadeOutDuration = 1000;
 
         imageView.setVisibility(View.INVISIBLE);    //Visible or invisible by default - this will apply when the animation ends
-        imageView.setImageResource(images[imageIndex]);
+        imageView.setImageResource(images.get(imageIndex));
 
         Animation fadeIn = new AlphaAnimation(0, 1);
         fadeIn.setInterpolator(new DecelerateInterpolator()); // add this
@@ -194,12 +198,12 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
 
         animation.setAnimationListener(new Animation.AnimationListener() {
             public void onAnimationEnd(Animation animation) {
-                if (images.length - 1 > imageIndex) {
-                    animate(imageView, images, imageIndex + 1,forever); //Calls itself until it gets to the end of the array
+                if (images.size() - 1 > imageIndex) {
+                    animateIDs(imageView, images, imageIndex + 1,forever); //Calls itself until it gets to the end of the array
                 }
                 else {
                     if (forever){
-                        animate(imageView, images, 0,forever);  //Calls itself to start the animation all over again in a loop if forever = true
+                        animateIDs(imageView, images, 0,forever);  //Calls itself to start the animation all over again in a loop if forever = true
                     }
                 }
             }

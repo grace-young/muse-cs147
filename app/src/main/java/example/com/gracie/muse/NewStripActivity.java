@@ -53,7 +53,7 @@ public class NewStripActivity extends AppCompatActivity {
 
         String arrayAsString = getIntent().getExtras().getString("striparray");
         List<Strip> list = Arrays.asList(new Gson().fromJson(arrayAsString, Strip[].class));
-        stripArray = new ArrayList<Strip>(list); //hopefully converts ??????
+        stripArray = new ArrayList<Strip>(list);
 
         Log.d("datas", "Got data back from Gson");
         for(int i = 0; i < stripArray.size(); i++){
@@ -68,13 +68,14 @@ public class NewStripActivity extends AppCompatActivity {
         // Called when "OK" button is tapped
         Log.d("datas", "inside finishNewStrip method");
         EditText editTitle = (EditText) findViewById(R.id.edit_title);
+        EditText editBlurb = (EditText) findViewById(R.id.edit_blurb);
 
         // Need to create a new Strip
         Strip newStrip = new Strip(editTitle.getText().toString(), "owner");
         Log.d("datas", "The title set is: " + editTitle.getText().toString());
         // add a panel to that Strip
                     // -1 signifies that it is NOT in the res folder.
-        Panel newPanel = new Panel("owner", selectedImgUriPath, -1);
+        Panel newPanel = new Panel("owner", editBlurb.getText().toString(), selectedImgUriPath, -1);
 
         newStrip.addPanel(newPanel);
 

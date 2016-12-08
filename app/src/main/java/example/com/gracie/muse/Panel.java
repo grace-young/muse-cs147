@@ -8,12 +8,14 @@ package example.com.gracie.muse;
 public class Panel {
     private String creatorUsername;
     private String imageNameOrPath;
+    private String panelBlurb;
     private int imageID; // The ID for the image, -1 if not in res
 
-    public Panel(String username, String imgPath, int imgID){
+    public Panel(String username, String blurb, String imgPath, int imgID){
         creatorUsername = username;
         imageNameOrPath = imgPath;
         imageID = imgID;
+        panelBlurb = blurb;
     }
 
     public String getCreatorUsername(){
@@ -31,4 +33,6 @@ public class Panel {
     public int getImageID(){
         return imageID;
     }
+
+    public String getPanelBlurb() {return panelBlurb; }
 }
