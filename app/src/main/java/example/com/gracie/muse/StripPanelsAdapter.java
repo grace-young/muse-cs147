@@ -92,7 +92,9 @@ public class StripPanelsAdapter extends  RecyclerView.Adapter<StripPanelsAdapter
                 // Send the Strip as a string
                 String stripAsString = new Gson().toJson(currentStrip);
                 intent.putExtra("stripstring", stripAsString);
+                intent.putExtra("clickedpos", Integer.toString(i_position));
                 view.getContext().startActivity(intent);
+
                        /* String arrayAsString = new Gson().toJson(holder.getData());
                 intent.putExtra("striparray", arrayAsString);
                 startActivityForResult(intent, NEW_STRIP_RESULT);*/
