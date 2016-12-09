@@ -6,13 +6,16 @@ package example.com.gracie.muse;
 
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import example.com.gracie.muse.Panel;
 
 public class Strip {
     private String stripTitle;
     private String ownerUsername;
+    private String timeCreated;
     private ArrayList<Panel> panelsInStrip;
     private boolean stripCompleted;
     private boolean createdByNewUser;
@@ -23,6 +26,9 @@ public class Strip {
         panelsInStrip = new ArrayList<Panel>();
         stripCompleted = false;
         createdByNewUser = madeByNewUser;
+        SimpleDateFormat s = new SimpleDateFormat("ddMMyyyyhhmmss");
+        String format = s.format(new Date());
+        Log.d("MYtime", format);
     }
 
     public void addPanel(String username, String blurb, String imgPath){

@@ -38,6 +38,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/button_delete_strip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -53,6 +54,7 @@
                     android:padding="5dp"
                     android:src="@drawable/ic_delete"
                     android:textColor="@color/colorPrimaryDark"
+                    android:onClick="deleteStrip"
                     android:textSize="20dp"></ImageButton>
 
                 <example.com.gracie.muse.CustomTextView
@@ -64,6 +66,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/finish_strip_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -76,6 +79,8 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_check"
                     android:padding="5dp"
+                    android:onClick="finishStrip"
+                    android:id="@+id/finish_button"
                     android:background="@android:color/transparent"/>
 
                 <example.com.gracie.muse.CustomTextView
@@ -86,6 +91,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/button_invite_panel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -98,6 +104,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_mail_outline"
                     android:padding="5dp"
+                    android:onClick="toInvite"
                     android:background="@android:color/transparent"/>
 
                 <example.com.gracie.muse.CustomTextView

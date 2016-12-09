@@ -72,7 +72,7 @@ public class NewStripActivity extends AppCompatActivity {
         EditText editBlurb = (EditText) findViewById(R.id.edit_blurb);
 
         // Need to create a new Strip
-        Strip newStrip = new Strip(editTitle.getText().toString(), "owner", true);
+        Strip newStrip = new Strip(editTitle.getText().toString(), "owner", true); // marking true that created by new user
         Log.d("datas", "The title set is: " + editTitle.getText().toString());
         // add a panel to that Strip
         // -1 signifies that it is NOT in the res folder.
