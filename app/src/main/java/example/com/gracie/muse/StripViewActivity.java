@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,6 +62,8 @@ public class StripViewActivity extends AppCompatActivity {
         stripToView = new Gson().fromJson(stripObjAsString, Strip.class);
         setTitle(stripToView.getStripTitle());
 
+        String username = stripToView.getOwnerUsername();
+
         CButton cb = (CButton) findViewById(R.id.username);
         cb.setText(stripToView.getOwnerUsername());
 
@@ -93,6 +96,26 @@ public class StripViewActivity extends AppCompatActivity {
         }else{
             Log.d("datas", "IN ELSE");
         }
+
+        ImageView iv = (ImageView) findViewById(R.id.prof_img);
+
+        ArrayList<Integer> image_ids = holder.getProfilePhotoIds();
+        int img_id;
+        if(username.matches("gracebyung")){
+            Log.d("prof", "found username matches: " + "gracebyung");
+            img_id = Integer.valueOf(image_ids.get(0));
+        }else if(username.matches("shannwooo")){
+            Log.d("prof", "found username matches: " + "shannwooo");
+            img_id = Integer.valueOf(image_ids.get(1));
+        }else if(username.matches("madawg")){
+            Log.d("prof", "found username matches: " + "madawg");
+            img_id = Integer.valueOf(image_ids.get(2));
+        }else {
+            Log.d("prof", "found username matches: " + "OTHER");
+            img_id = Integer.valueOf(image_ids.get(3));
+        }
+
+        iv.setImageResource(img_id);
 
     }
 

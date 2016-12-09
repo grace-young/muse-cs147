@@ -39,18 +39,16 @@
 
             <example.com.gracie.muse.CEditText
                 android:id="@+id/edit_blurb"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLines="2"
                 android:hint="@string/edit_blurb"></example.com.gracie.muse.CEditText>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
 
             <example.com.gracie.muse.CEditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxLines="1"
                 android:hint="@string/add_tags"></example.com.gracie.muse.CEditText>
 
             <LinearLayout
