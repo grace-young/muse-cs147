@@ -25,6 +25,7 @@ public class StripViewActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private Strip stripToView; // the strip being displayed
+    private StripDataHolder holder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,15 @@ public class StripViewActivity extends AppCompatActivity {
             Log.d("datas", "IN ELSE");
         }
 
+        // TESTING SOME HOLDER THINGS
+        holder = StripDataHolder.getInstance();
+        Strip s = new Strip("titleherehahaha", "fakeowner hahaha", false);
+        holder.addNewStrip(s);
+
+        Log.d("holder", "length of holder data: " + holder.getData().size());
+
+
+
         Log.d("datas", "IN ON CREATE of StripViewActivity");
     }
 
@@ -89,7 +99,13 @@ public class StripViewActivity extends AppCompatActivity {
     }
 
     public void deleteStrip(View view){
+        int sizeBefore = holder.getData().size();
+        holder.deleteStrip(stripToView.getOwnerUsername(), stripToView.getStripTitle());
+        if (sizeBefore == holder.getData().size()){
+            Log.d("datas", "PROBLEM THIS DID NOT ACTUALLY DELETE");
+        }
         Log.d("datas", "DELETE THIS STRIP");
+        finish();
     }
 
 

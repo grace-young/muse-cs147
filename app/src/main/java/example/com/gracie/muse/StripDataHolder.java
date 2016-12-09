@@ -43,6 +43,19 @@ public class StripDataHolder {
         Log.d("datas", "reset the stored strip arraylist");
     }
 
+    public void deleteStrip(String creatorUsername, String stripTitle){
+        for(int i = 0; i < allStrips.size(); i++){
+            if(allStrips.get(i).getOwnerUsername().equals(creatorUsername) &&
+                    allStrips.get(i).getStripTitle().equals(stripTitle)){
+                // This is the same strip! And it is not completed.
+                // Might be easier to pass in info for panel?????
+                allStrips.remove(i);
+                return;
+            }
+        }
+    }
+
+
     private static final StripDataHolder holder = new StripDataHolder();
     public static StripDataHolder getInstance() {return holder;}
 
