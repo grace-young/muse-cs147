@@ -47,6 +47,8 @@ public class StripViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_strip_view);
 
+        setTitle("Strip");
+
         Log.d("datas", "IN ON CREATE of StripViewActivity");
 
         holder = StripDataHolder.getInstance();
@@ -60,12 +62,14 @@ public class StripViewActivity extends AppCompatActivity {
 
         String stripObjAsString = getIntent().getExtras().getString("stripstring");
         stripToView = new Gson().fromJson(stripObjAsString, Strip.class);
-        setTitle(stripToView.getStripTitle());
 
         String username = stripToView.getOwnerUsername();
 
         CButton cb = (CButton) findViewById(R.id.username);
         cb.setText(stripToView.getOwnerUsername());
+
+        CustomTextView cvt = (CustomTextView) findViewById(R.id.strip_title_view);
+        cvt.setText(stripToView.getStripTitle());
 
         mRecyclerView = (RecyclerView)findViewById(R.id.rv);
         mRecyclerView.setHasFixedSize(true);
