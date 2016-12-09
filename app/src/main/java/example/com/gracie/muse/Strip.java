@@ -15,12 +15,14 @@ public class Strip {
     private String ownerUsername;
     private ArrayList<Panel> panelsInStrip;
     private boolean stripCompleted;
+    private boolean createdByNewUser;
 
-    public Strip(String title, String owner){
+    public Strip(String title, String owner, boolean madeByNewUser){
         stripTitle = title;
         ownerUsername = owner;
         panelsInStrip = new ArrayList<Panel>();
         stripCompleted = false;
+        createdByNewUser = madeByNewUser;
     }
 
     public void addPanel(String username, String blurb, String imgPath){
@@ -34,6 +36,8 @@ public class Strip {
         panelsInStrip.add(addedPanel);
         Log.d("datas", "added panel to " + stripTitle + " with username " + username);
     }
+
+    public boolean isCreatedByNewUser(){return createdByNewUser; }
 
     public void addPanel(Panel p){
         panelsInStrip.add(p);

@@ -107,18 +107,18 @@ public class MainActivity extends AppCompatActivity {
             return holder;
         }
 
-        Strip balloonStrip = new Strip ("Lost Balloon", "madawg");
+        Strip balloonStrip = new Strip ("Lost Balloon", "madawg", false);
         balloonStrip.addPanel("madawg", "elephant blurb stand in here", R.drawable.b_elephant);
         balloonStrip.addPanel("gracebyung", "balloon blurb stand in here", R.drawable.b_balloon);
         balloonStrip.addPanel("shannwooo", "balloon up blurb stand in here", R.drawable.b_up);
         holder.addNewStrip(balloonStrip);
 
-        Strip peopleStrip = new Strip ("Stick Figures", "shannwoooo");
+        Strip peopleStrip = new Strip ("Stick Figures", "shannwoooo", false);
         peopleStrip.addPanel("shannwooo", "stick figure blurb stand in here", R.drawable.p_stick_figure);
         peopleStrip.addPanel("gracebyung", "man drawing blurb stand in here", R.drawable.p_man_drawing);
         holder.addNewStrip(peopleStrip);
 
-        Strip leavesStrip = new Strip ("Leaves", "gracebyung");
+        Strip leavesStrip = new Strip ("Leaves", "gracebyung", false);
         leavesStrip.addPanel("gracebyung", "leaves blurb stand in here", R.drawable.l_leaves);
         leavesStrip.addPanel("shannwooo", "tea leaves blurb stand in here", R.drawable.l_tea_leaves);
         leavesStrip.addPanel("madawg", "trelawney blurb stand in here", R.drawable.l_prof_trelawney);
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         leavesStrip.addPanel("shannwooo", "hand palm blurb stand in here", R.drawable.l_palm);
         holder.addNewStrip(leavesStrip);
 
-        Strip differentStrip = new Strip ("Different", "madawg");
+        Strip differentStrip = new Strip ("Different", "madawg", false);
         differentStrip.addPanel("madawg", "dumbo blurb stand in here", R.drawable.d_dumbo_and_stitch);
         differentStrip.addPanel("gracebyung", "ugly duckling blurb stand in here", R.drawable.d_ugly_duckling);
         differentStrip.addPanel("shannwooo", "lyric blurb stand in here", R.drawable.d_lyric);

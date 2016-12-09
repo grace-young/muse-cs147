@@ -72,7 +72,7 @@ public class NewStripActivity extends AppCompatActivity {
         EditText editBlurb = (EditText) findViewById(R.id.edit_blurb);
 
         // Need to create a new Strip
-        Strip newStrip = new Strip(editTitle.getText().toString(), "owner");
+        Strip newStrip = new Strip(editTitle.getText().toString(), "owner", true);
         Log.d("datas", "The title set is: " + editTitle.getText().toString());
         // add a panel to that Strip
         // -1 signifies that it is NOT in the res folder.
@@ -82,7 +82,7 @@ public class NewStripActivity extends AppCompatActivity {
 
         // add it to the ArrayList<Strip>
         // and send that back.
-        stripArray.add(newStrip);
+        stripArray.add(0, newStrip);
         return stripArray;
     }
 
