@@ -76,20 +76,22 @@ public class NewStripActivity extends AppCompatActivity {
         EditText editBlurb = (EditText) findViewById(R.id.edit_blurb);
 
         String title = editTitle.getText().toString();
+        Log.d("hello", title);
         if (title.matches("")) {
+            Log.d("hello", "what is going on");
             LayoutInflater inflater = getLayoutInflater();
             View layout = inflater.inflate(R.layout.custom_toast,
                     (ViewGroup) findViewById(R.id.custom_toast_container));
             TextView text = (TextView) layout.findViewById(R.id.text);
             text.setText("Your strip needs a title!");
             Toast toast = new Toast(getApplicationContext());
-            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setDuration(Toast.LENGTH_SHORT);
             toast.setView(layout);
             toast.show();
             return false;
         }
         // Need to create a new Strip
-        Strip newStrip = new Strip(editTitle.getText().toString(), "owner", true); // marking true that created by new user
+        Strip newStrip = new Strip(editTitle.getText().toString(), holder.getNewUsername(), true); // marking true that created by new user
         Log.d("datas", "The title set is: " + editTitle.getText().toString());
         // add a panel to that Strip
         // -1 signifies that it is NOT in the res folder.
