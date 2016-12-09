@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         setTitle("Explore");
 
         // first put data in
@@ -51,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d("datas", "IN ON CREATE");
     }
 
-
     public void createNewStrip(View view) {
         Intent intent = new Intent(this, NewStripActivity.class);
 
@@ -61,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("striparray", arrayAsString);
         startActivityForResult(intent, NEW_STRIP_RESULT);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
