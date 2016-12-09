@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/custom_toast_container"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom|center"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="1dp">
+
+        <example.com.gracie.muse.CustomTextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:padding="13dp"
+            android:background="@drawable/rounded_rect"
+            android:textColor="@android:color/white"
+            ></example.com.gracie.muse.CustomTextView>
+
+    </LinearLayout>
+
+</LinearLayout>
