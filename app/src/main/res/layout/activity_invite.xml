@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingBottom="0dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -78,7 +78,7 @@
             android:gravity="center"
             android:background="@android:color/transparent"
             android:onClick="finishNewStrip"
-            android:textSize="16dp"
+            android:textSize="20dp"
             android:text="NO THANKS"></example.com.gracie.muse.CButton>
 
         <example.com.gracie.muse.CButton
@@ -88,7 +88,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:layout_marginLeft="110dp"
-            android:textSize="16dp"
+            android:textSize="20dp"
             android:background="@android:color/transparent"
             android:onClick="finishNewStripInvite"
             android:text="@string/button_invite"

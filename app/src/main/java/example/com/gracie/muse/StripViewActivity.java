@@ -134,7 +134,7 @@ public class StripViewActivity extends AppCompatActivity {
         View layout = inflater.inflate(R.layout.custom_toast,
                 (ViewGroup) findViewById(R.id.custom_toast_container));
         TextView text = (TextView) layout.findViewById(R.id.text);
-        text.setText("Strip marked as finished; no more panels will be added!");
+        text.setText("Strip marked as finished; no more panels will be added");
         Toast toast = new Toast(getApplicationContext());
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
