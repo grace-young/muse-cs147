@@ -194,16 +194,9 @@ public class MainActivity extends AppCompatActivity {
         // thrid person is last
         holder.addUsernamePhotoID(dumb_3); // 3rd index is for other person.
 
-        Strip balloonStrip = new Strip ("Lost Balloon", "madawg", false);
-        balloonStrip.addPanel("madawg", "Before Dumbo grew his ears, all he had was a little balloon and big dreams.", R.drawable.b_elephant);
-        balloonStrip.addPanel("gracebyung", "Then one day he lost the balloon! It floated away into the sky.", R.drawable.b_balloon);
-        balloonStrip.addPanel("shannwooo", "It was meant for a different adventure.", R.drawable.b_up);
-        holder.addNewStrip(balloonStrip);
-        Log.d("datas", "balloonstrip iscompleted: " + balloonStrip.isCreatedByNewUser());
-
         Strip peopleStrip = new Strip ("Stick Figures", "gracebyung", false);
         peopleStrip.addPanel("gracebyung", "I can only draw stick figures :(", R.drawable.p_stick_figure);
-        peopleStrip.addPanel("shannowoo", "Keep at it, that's where we all start!", R.drawable.p_man_drawing);
+        peopleStrip.addPanel("shannwoo", "Keep at it, that's where we all start!", R.drawable.p_man_drawing);
         holder.addNewStrip(peopleStrip);
         Log.d("datas", "peoplestrip iscompleted: " + peopleStrip.isCreatedByNewUser());
 
@@ -211,23 +204,31 @@ public class MainActivity extends AppCompatActivity {
         leavesStrip.addPanel("shannwooo", "My backyard is COVERED in leaves!", R.drawable.l_leaves);
         leavesStrip.addPanel("gracebyung", "Did someone say leaves?", R.drawable.l_tea_leaves);
         leavesStrip.addPanel("madawg", "Watch out, Professor Trelawney might read your tea leaf fortune.", R.drawable.l_prof_trelawney);
-        leavesStrip.addPanel("shannwooo", "Professor Trelawney or Tori Kelley? Curly hair, don't care :P", R.drawable.l_tori_kelley);
+        leavesStrip.addPanel("gracebyung", "Professor Trelawney or Tori Kelley? Curly hair, don't care :P", R.drawable.l_tori_kelley);
         leavesStrip.addPanel("madawg", "Tori Kelley's guitar skills tho", R.drawable.l_guitar);
         leavesStrip.addPanel("gracebyung", "Pretty sun design on the guitar... getting some sun at the beach right now", R.drawable.l_sun_beach);
-        leavesStrip.addPanel("shannwooo", "Beach life forever! Here's my favorite type of leaves, just to bring it full circle hehe", R.drawable.l_palm_tree);
-        leavesStrip.addPanel("madawg", "Palms? :D", R.drawable.l_palm);
+        leavesStrip.addPanel("madawg", "Beach life forever! Here's my favorite type of leaves, just to bring it full circle hehe", R.drawable.l_palm_tree);
+        leavesStrip.addPanel("gracebyung", "Palms? :D", R.drawable.l_palm);
         holder.addNewStrip(leavesStrip);
         Log.d("datas", "leavestrip iscompleted: " + leavesStrip.isCreatedByNewUser());
 
-        Strip differentStrip = new Strip ("Do you", "shannwooo", false);
-        differentStrip.addPanel("shannwooo", "Gotta love him. Always doin his own thing", R.drawable.d_stitch);
-        differentStrip.addPanel("gracebyung", "Ugly ducklings unite", R.drawable.d_ugly_duckling);
-        differentStrip.addPanel("madawg", "Lyric from \"Get it Together\", one of my fav songs by India Arie", R.drawable.d_lyric);
-        holder.addNewStrip(differentStrip);
-        Log.d("datas", "differentstrip iscompleted: " + differentStrip.isCreatedByNewUser());
-        Log.d("datas", holder.getData().toString());
+        Strip starsStrip = new Strip ("Under The Stars", "gracebyung", false);
+        starsStrip.addPanel("gracebyung", "A man was enjoying a nice night under the stars.", R.drawable.comic1);
+        starsStrip.addPanel("madawg", "Suddenly he noticed a tornado whirling toward him.", R.drawable.comic2);
+        starsStrip.addPanel("shannwooo", "The tornado destroyed everything around the man. It was almost his time.", R.drawable.comic3);
+        starsStrip.addPanel("madawg", "The stars, witnessing the chaos from above, felt sorry for the man.", R.drawable.comic4);
+        starsStrip.addPanel("shannwooo", "They decided it wasn't his time and took the tornado away.", R.drawable.comic5);
+        starsStrip.addPanel("madawg", "The man was overjoyed and thanked the heavens for saving his life.", R.drawable.comic6);
 
+        holder.addNewStrip(starsStrip);
+        Log.d("datas", "balloonstrip iscompleted: " + starsStrip.isCreatedByNewUser());
 
+        Strip balloonStrip = new Strip ("An Elephant And A Balloon", "madawg", false);
+        balloonStrip.addPanel("madawg", "Before Dumbo grew his ears, all he had was a little balloon and big dreams.", R.drawable.b_elephant);
+        balloonStrip.addPanel("gracebyung", "Then one day he lost the balloon! It floated away into the sky.", R.drawable.b_balloon);
+        balloonStrip.addPanel("shannwooo", "It was meant for a different adventure.", R.drawable.b_up);
+        holder.addNewStrip(balloonStrip);
+        Log.d("datas", "balloonstrip iscompleted: " + balloonStrip.isCreatedByNewUser());
 
         // Now to create the panels and strip for the cats
 
