@@ -62,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createNewStrip(View view) {
-        Intent intent = new Intent(this, NewStripActivity.class);
-
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
         // holder.getData() returns an arraylist of all the strip objects
-        String arrayAsString = new Gson().toJson(holder.getData());
-        Log.d("hello", arrayAsString);
-        intent.putExtra("striparray", arrayAsString);
-        startActivityForResult(intent, NEW_STRIP_RESULT);
+//        String arrayAsString = new Gson().toJson(holder.getData());
+//        Log.d("hello", arrayAsString);
+//        intent.putExtra("striparray", arrayAsString);
+//        startActivityForResult(intent, NEW_STRIP_RESULT);
     }
 
     @Override

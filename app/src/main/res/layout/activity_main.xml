@@ -21,7 +21,6 @@
         android:elevation="0dp"
         android:layout_weight="1"/>
 
-
     <example.com.gracie.muse.CButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

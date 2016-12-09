@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
@@ -23,14 +22,12 @@ import android.widget.TextView;
  */
 public class PanelViewFragment extends Fragment {
 
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_BLURB = "argblurb";
     private static final String ARG_IMGID = "argimgid";
     private static final String ARG_IMGPATH = "arimgpath";
     private static final String ARG_CREATOR = "argcreator";
-
 
     // TODO: Rename and change types of parameters
     private String mCreatorUsername;
@@ -53,8 +50,6 @@ public class PanelViewFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment PanelView.
      */
-
-
 
     // TODO: Rename and change types and number of parameters
     public static PanelViewFragment newInstance(String creatorUsername, String blurb,

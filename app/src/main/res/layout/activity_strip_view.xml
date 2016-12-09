@@ -15,13 +15,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <example.com.gracie.muse.CustomTextView
-            android:id="@+id/title_of_strip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20dp"></example.com.gracie.muse.CustomTextView>
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv"
             android:layout_width="match_parent"
@@ -62,7 +55,6 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/button_delete"/>
-
             </LinearLayout>
 
             <LinearLayout
@@ -139,7 +131,6 @@
                     android:textSize="16dp"
                     android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
-
 
         </LinearLayout>
 
