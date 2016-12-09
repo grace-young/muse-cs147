@@ -20,7 +20,7 @@
             <example.com.gracie.muse.CustomTextView
                 android:id="@+id/adding_to"
                 android:padding="5dp"
-                android:textSize="16dp"
+                android:textSize="18dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
