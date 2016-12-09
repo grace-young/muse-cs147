@@ -13,18 +13,18 @@ import java.util.HashMap;
 public class StripDataHolder {
     private ArrayList<Strip> allStrips = new ArrayList<Strip>();
     private String newUsername;
-    private HashMap<String, Integer> usernameToPhotoId = new HashMap<>();
+    private ArrayList<Integer> profIDs = new ArrayList<Integer>();
 
     public ArrayList<Strip> getData(){
         return allStrips;
     }
 
-    public void addUsernamePhotoIDPair(String username, Integer photoId){
-        usernameToPhotoId.put(username, photoId);
+    public void addUsernamePhotoID(Integer photoId){
+        profIDs.add(photoId);
     }
 
-    public int getProfilePhotoId(String username){
-        return Integer.valueOf(usernameToPhotoId.get(username));
+    public ArrayList<Integer> getProfilePhotoIds(){
+        return profIDs;
     }
 
     public void setData(ArrayList<Strip> allStripsNew){
@@ -74,10 +74,11 @@ public class StripDataHolder {
     public ArrayList<Strip> getStripsFromUser(String username){
         ArrayList<Strip> toReturn = new ArrayList<Strip>();
         for (Strip s : allStrips){
-            if(s.getOwnerUsername().equals(username)){
+            Log.d("prof", "strip created by: " + s.getOwnerUsername());
+            if(s.getOwnerUsername().matches(username)){
                 // This is the same strip! And it is not completed.
                 // Might be easier to pass in info for panel?????
-                Log.d("datas", "found strip for user");
+                Log.d("prof", "found strip for user: " + username);
                 toReturn.add(s);
             }
         }
