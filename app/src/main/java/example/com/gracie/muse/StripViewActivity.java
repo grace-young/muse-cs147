@@ -8,6 +8,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
 import example.com.gracie.muse.Strip;
 
 import com.google.gson.Gson;
@@ -42,8 +46,49 @@ public class StripViewActivity extends AppCompatActivity {
         mAdapter = new StripPanelsAdapter(stripToView);
         mRecyclerView.setAdapter(mAdapter);
 
+        // EDIT THE VISIBILITY
+        Log.d("datas", "STRIP TO VIEW COLMPLETE...." + stripToView.isCreatedByNewUser());
+        if(!stripToView.isCreatedByNewUser()){
+            Log.d("datas", "IN IF stripview");
+            // want to disappear the other options
+            LinearLayout linlay_finish = (LinearLayout) findViewById(R.id.finish_strip_button);
+            linlay_finish.setVisibility(View.GONE);
+
+            LinearLayout linlay_del = (LinearLayout) findViewById(R.id.button_delete_strip);
+            linlay_del.setVisibility(View.GONE);
+
+            LinearLayout linlay_invite = (LinearLayout) findViewById(R.id.button_invite_panel);
+            linlay_invite.setVisibility(View.GONE);
+
+            LinearLayout linlay_add = (LinearLayout) findViewById(R.id.button_add_panel);
+            linlay_add.setVisibility(View.VISIBLE);
+        }else{
+            Log.d("datas", "IN ELSE");
+        }
+
         Log.d("datas", "IN ON CREATE of StripViewActivity");
     }
+
+
+    public void finishStrip(View view){
+        Log.d("datas", "FINISH THIS STRIP");
+        stripToView.markStripCompleted();
+        LinearLayout linlay_finish = (LinearLayout) findViewById(R.id.finish_strip_button);
+        linlay_finish.setVisibility(View.INVISIBLE);
+        Toast.makeText(getApplicationContext(), "Your strip is finished: congrats!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        // want to find way to tell main activity that the strip has been updated????
+        super.onBackPressed();
+    }
+
+    public void deleteStrip(View view){
+        Log.d("datas", "DELETE THIS STRIP");
+    }
+
 
     public void toInvite(View view) {
         Intent intent = new Intent(this, InviteActivity.class);
