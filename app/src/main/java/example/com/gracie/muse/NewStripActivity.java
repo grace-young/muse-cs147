@@ -80,15 +80,13 @@ public class NewStripActivity extends AppCompatActivity {
             LayoutInflater inflater = getLayoutInflater();
             View layout = inflater.inflate(R.layout.custom_toast,
                     (ViewGroup) findViewById(R.id.custom_toast_container));
-
             TextView text = (TextView) layout.findViewById(R.id.text);
             text.setText("Your strip needs a title!");
-
             Toast toast = new Toast(getApplicationContext());
             toast.setDuration(Toast.LENGTH_LONG);
             toast.setView(layout);
             toast.show();
-            return null;
+            return false;
         }
         // Need to create a new Strip
         Strip newStrip = new Strip(editTitle.getText().toString(), "owner", true); // marking true that created by new user

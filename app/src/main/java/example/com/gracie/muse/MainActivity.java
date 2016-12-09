@@ -204,7 +204,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d("datas", "leavestrip iscompleted: " + leavesStrip.isCreatedByNewUser());
 
         Strip differentStrip = new Strip ("Different", "madawg", false);
-        differentStrip.addPanel("madawg", "dumbo blurb stand in here", R.drawable.d_dumbo_and_stitch);
         differentStrip.addPanel("gracebyung", "ugly duckling blurb stand in here", R.drawable.d_ugly_duckling);
         differentStrip.addPanel("shannwooo", "lyric blurb stand in here", R.drawable.d_lyric);
         holder.addNewStrip(differentStrip);
