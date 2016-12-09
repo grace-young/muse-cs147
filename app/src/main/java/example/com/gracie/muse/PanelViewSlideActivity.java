@@ -35,6 +35,7 @@ public class PanelViewSlideActivity extends AppCompatActivity{ //FragmentActivit
      * The pager adapter, which provides the pages to the view pager widget.
      */
     private PagerAdapter mPagerAdapter;
+    private int posToStart;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class PanelViewSlideActivity extends AppCompatActivity{ //FragmentActivit
 
         // set the number of pages first
         String stripObjAsString = getIntent().getExtras().getString("stripstring");
+        posToStart = Integer.parseInt(getIntent().getExtras().getString("clickedpos"));
         stripToView = new Gson().fromJson(stripObjAsString, Strip.class);
         panelsInStrip = stripToView.getPanels();
         NUM_PAGES = stripToView.getPanels().size();
@@ -52,16 +54,13 @@ public class PanelViewSlideActivity extends AppCompatActivity{ //FragmentActivit
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
 
+
         setTitle(stripToView.getStripTitle());
+
+        mPager.setCurrentItem(posToStart);
 
         Log.d("strips", "in PanelViewSlideActivity");
         Log.d("strips", stripToView.toString());
-
-        // TESTING HOLDER THINGS
-        StripDataHolder holder = StripDataHolder.getInstance();
-        ArrayList<Strip> arrlist = holder.getData();
-        Log.d("holder", "length of holder data: " + arrlist.size());
-
 
     }
 
