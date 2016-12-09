@@ -80,13 +80,6 @@ public class MainActivity extends AppCompatActivity {
         cam_intent.setAction(Intent.ACTION_GET_CONTENT);
 
         startActivityForResult(Intent.createChooser(cam_intent, "Select Picture"), SELECT_PICTURE);
-
-/*
-        String arrayAsString = new Gson().toJson(holder.getData());
-        Log.d("hello", arrayAsString);
-        intent.putExtra("striparray", arrayAsString);
-        startActivityForResult(intent, NEW_STRIP_RESULT);
-*/
     }
 
     @Override
@@ -177,36 +170,35 @@ public class MainActivity extends AppCompatActivity {
             // This has already been initalized
             return holder;
         }
-
         Strip balloonStrip = new Strip ("Lost Balloon", "madawg", false);
-        balloonStrip.addPanel("madawg", "elephant blurb stand in here", R.drawable.b_elephant);
-        balloonStrip.addPanel("gracebyung", "balloon blurb stand in here", R.drawable.b_balloon);
-        balloonStrip.addPanel("shannwooo", "balloon up blurb stand in here", R.drawable.b_up);
+        balloonStrip.addPanel("madawg", "Before Dumbo grew his ears, all he had was a little balloon and big dreams.", R.drawable.b_elephant);
+        balloonStrip.addPanel("gracebyung", "Then one day he lost the balloon! It floated away into the sky.", R.drawable.b_balloon);
+        balloonStrip.addPanel("shannwooo", "It was meant for a different adventure.", R.drawable.b_up);
         holder.addNewStrip(balloonStrip);
         Log.d("datas", "balloonstrip iscompleted: " + balloonStrip.isCreatedByNewUser());
 
-        Strip peopleStrip = new Strip ("Stick Figures", "shannwoooo", false);
-        peopleStrip.addPanel("shannwooo", "stick figure blurb stand in here", R.drawable.p_stick_figure);
-        peopleStrip.addPanel("gracebyung", "man drawing blurb stand in here", R.drawable.p_man_drawing);
+        Strip peopleStrip = new Strip ("Stick Figures", "gracebyung", false);
+        peopleStrip.addPanel("gracebyung", "I can only draw stick figures :(", R.drawable.p_stick_figure);
+        peopleStrip.addPanel("shannowooo", "Keep at it, that's where we all start!", R.drawable.p_man_drawing);
         holder.addNewStrip(peopleStrip);
         Log.d("datas", "peoplestrip iscompleted: " + peopleStrip.isCreatedByNewUser());
 
-        Strip leavesStrip = new Strip ("Leaves", "gracebyung", false);
-        leavesStrip.addPanel("gracebyung", "leaves blurb stand in here", R.drawable.l_leaves);
-        leavesStrip.addPanel("shannwooo", "tea leaves blurb stand in here", R.drawable.l_tea_leaves);
-        leavesStrip.addPanel("madawg", "trelawney blurb stand in here", R.drawable.l_prof_trelawney);
-        leavesStrip.addPanel("madawg", "tori kelley blurb stand in here", R.drawable.l_tori_kelley);
-        leavesStrip.addPanel("shannwooo", "guitar blurb stand in here", R.drawable.l_guitar);
-        leavesStrip.addPanel("shannwooo", "sun beach blurb stand in here", R.drawable.l_sun_beach);
-        leavesStrip.addPanel("shannwooo", "palm tree blurb stand in here", R.drawable.l_palm_tree);
-        leavesStrip.addPanel("shannwooo", "hand palm blurb stand in here", R.drawable.l_palm);
+        Strip leavesStrip = new Strip ("Leaves", "shannwooo", false);
+        leavesStrip.addPanel("shannwooo", "My backyard is COVERED in leaves!", R.drawable.l_leaves);
+        leavesStrip.addPanel("gracebyung", "Did someone say leaves?", R.drawable.l_tea_leaves);
+        leavesStrip.addPanel("madawg", "Watch out, Professor Trelawney might read your tea leaf fortune.", R.drawable.l_prof_trelawney);
+        leavesStrip.addPanel("shannwooo", "Professor Trelawney or Tori Kelley? Curly hair, don't care :P", R.drawable.l_tori_kelley);
+        leavesStrip.addPanel("madawg", "Tori Kelley's guitar skills tho", R.drawable.l_guitar);
+        leavesStrip.addPanel("gracebyung", "Pretty sun design on the guitar... getting some sun at the beach right now", R.drawable.l_sun_beach);
+        leavesStrip.addPanel("shannwooo", "Beach life forever! Here's my favorite type of leaves, just to bring it full circle hehe", R.drawable.l_palm_tree);
+        leavesStrip.addPanel("madawg", "Palms? :D", R.drawable.l_palm);
         holder.addNewStrip(leavesStrip);
         Log.d("datas", "leavestrip iscompleted: " + leavesStrip.isCreatedByNewUser());
 
-        Strip differentStrip = new Strip ("Different", "madawg", false);
-        differentStrip.addPanel("madawg", "dumbo blurb stand in here", R.drawable.d_dumbo_and_stitch);
-        differentStrip.addPanel("gracebyung", "ugly duckling blurb stand in here", R.drawable.d_ugly_duckling);
-        differentStrip.addPanel("shannwooo", "lyric blurb stand in here", R.drawable.d_lyric);
+        Strip differentStrip = new Strip ("Do you", "shannwoo", false);
+        differentStrip.addPanel("shannwoo", "Gotta love him. Always doin his own thing", R.drawable.d_stitch);
+        differentStrip.addPanel("gracebyung", "Ugly ducklings unite", R.drawable.d_ugly_duckling);
+        differentStrip.addPanel("madawg", "Lyric from \"Get it Together\", one of my fav songs by India Arie", R.drawable.d_lyric);
         holder.addNewStrip(differentStrip);
         Log.d("datas", "differentstrip iscompleted: " + differentStrip.isCreatedByNewUser());
         Log.d("datas", holder.getData().toString());

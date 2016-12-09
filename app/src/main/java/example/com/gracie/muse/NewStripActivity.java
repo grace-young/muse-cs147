@@ -88,7 +88,7 @@ public class NewStripActivity extends AppCompatActivity {
             toast.setDuration(Toast.LENGTH_LONG);
             toast.setView(layout);
             toast.show();
-            return null;
+            return false;
         }
         // Need to create a new Strip
         Strip newStrip = new Strip(editTitle.getText().toString(), "owner", true); // marking true that created by new user
