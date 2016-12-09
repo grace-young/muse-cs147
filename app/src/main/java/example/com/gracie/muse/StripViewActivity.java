@@ -14,9 +14,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import example.com.gracie.muse.Strip;
@@ -115,7 +119,16 @@ public class StripViewActivity extends AppCompatActivity {
         LinearLayout linlay_invite = (LinearLayout) findViewById(R.id.button_invite_panel);
         linlay_invite.setVisibility(View.INVISIBLE);
 
-        Toast.makeText(getApplicationContext(), "Your strip is finished: congrats!", Toast.LENGTH_SHORT).show();
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast,
+                (ViewGroup) findViewById(R.id.custom_toast_container));
+        TextView text = (TextView) layout.findViewById(R.id.text);
+        text.setText("Strip marked as finished; no more panels will be added!");
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.show();
+
     }
 
 
@@ -126,6 +139,15 @@ public class StripViewActivity extends AppCompatActivity {
             Log.d("datas", "PROBLEM THIS DID NOT ACTUALLY DELETE");
         }
         Log.d("datas", "DELETE THIS STRIP");
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast,
+                (ViewGroup) findViewById(R.id.custom_toast_container));
+        TextView text = (TextView) layout.findViewById(R.id.text);
+        text.setText("Your strip has been deleted");
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.show();
         finish();
     }
 

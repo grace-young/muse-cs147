@@ -27,7 +27,7 @@
         android:onClick="createNewStrip"
         android:gravity="center"
         android:layout_gravity="center|bottom"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorAccent"
         android:layout_weight="0"
         android:textColor="@android:color/white"
         android:text="@string/create_strip_button"

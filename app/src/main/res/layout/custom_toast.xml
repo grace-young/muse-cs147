@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:padding="12dp"
+            android:gravity="center"
             android:background="@drawable/rounded_rect"
             android:textColor="@android:color/white"
             ></example.com.gracie.muse.CustomTextView>

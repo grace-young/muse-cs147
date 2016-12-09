@@ -90,7 +90,7 @@
             android:layout_marginLeft="110dp"
             android:textSize="16dp"
             android:background="@android:color/transparent"
-            android:onClick="finishNewStrip"
+            android:onClick="finishNewStripInvite"
             android:text="@string/button_invite"
             android:textColor="@color/colorAccent">
 

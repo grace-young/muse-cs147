@@ -28,7 +28,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:padding="10dp"
-            android:src="@drawable/GracieYoung"/>
+            android:src="@drawable/gracieyoung"/>
 
         <View
             android:layout_width="match_parent"
