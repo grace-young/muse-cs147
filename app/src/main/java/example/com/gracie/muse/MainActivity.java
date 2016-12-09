@@ -47,7 +47,18 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new AllStripAdapter(holder.getData());
         mRecyclerView.setAdapter(mAdapter);
 
-        Log.d("datas", "IN ON CREATE");
+        Log.d("datas", "IN ON CREATE of MainActivity");
+
+
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Log.d("holder", "on resume called in main activity");
+        mAdapter = new AllStripAdapter(holder.getData());
+        mAdapter.notifyDataSetChanged();
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     public void createNewStrip(View view) {

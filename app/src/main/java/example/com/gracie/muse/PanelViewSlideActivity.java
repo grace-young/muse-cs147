@@ -13,6 +13,7 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -55,6 +56,12 @@ public class PanelViewSlideActivity extends AppCompatActivity{ //FragmentActivit
 
         Log.d("strips", "in PanelViewSlideActivity");
         Log.d("strips", stripToView.toString());
+
+        // TESTING HOLDER THINGS
+        StripDataHolder holder = StripDataHolder.getInstance();
+        ArrayList<Strip> arrlist = holder.getData();
+        Log.d("holder", "length of holder data: " + arrlist.size());
+
 
     }
 
