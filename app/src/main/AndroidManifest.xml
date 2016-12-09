@@ -26,20 +26,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewStripActivity" />
-        <!--
-     ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
-        -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
         <activity android:name=".Register" />
         <activity android:name=".InviteActivity" />
-        <activity
-            android:name=".Profile"
-            android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".PanelViewSlideActivity" />
         <activity android:name=".Onboarding1Explore" />
         <activity android:name=".OnboardingWelcome" />
@@ -51,5 +40,13 @@
         <activity android:name=".inviteToExistingStrip" />
         <activity android:name=".AddPanelActivity"></activity>
     </application>
+
+    <!--
+ATTENTION: This was auto-generated to add Google Play services to your project for
+App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+-->
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version" />
 
 </manifest>

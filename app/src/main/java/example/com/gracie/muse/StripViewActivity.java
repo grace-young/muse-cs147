@@ -25,6 +25,7 @@ public class StripViewActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private Strip stripToView; // the strip being displayed
+    private StripDataHolder holder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class StripViewActivity extends AppCompatActivity {
         // Get the Strip from the previous activity
         String stripObjAsString = getIntent().getExtras().getString("stripstring");
         stripToView = new Gson().fromJson(stripObjAsString, Strip.class);
-
+        setTitle(stripToView.getStripTitle());
 
         mRecyclerView = (RecyclerView)findViewById(R.id.rv);
         mRecyclerView.setHasFixedSize(true);
@@ -45,9 +46,6 @@ public class StripViewActivity extends AppCompatActivity {
 
         mAdapter = new StripPanelsAdapter(stripToView);
         mRecyclerView.setAdapter(mAdapter);
-
-        CustomTextView cv = (CustomTextView) findViewById(R.id.title_of_strip);
-        cv.setText(stripToView.getStripTitle());
 
         // EDIT THE VISIBILITY
         Log.d("datas", "STRIP TO VIEW COLMPLETE...." + stripToView.isCreatedByNewUser());
@@ -69,6 +67,15 @@ public class StripViewActivity extends AppCompatActivity {
             Log.d("datas", "IN ELSE");
         }
 
+        // TESTING SOME HOLDER THINGS
+        holder = StripDataHolder.getInstance();
+        Strip s = new Strip("titleherehahaha", "fakeowner hahaha", false);
+        holder.addNewStrip(s);
+
+        Log.d("holder", "length of holder data: " + holder.getData().size());
+
+
+
         Log.d("datas", "IN ON CREATE of StripViewActivity");
     }
 
@@ -89,7 +96,13 @@ public class StripViewActivity extends AppCompatActivity {
     }
 
     public void deleteStrip(View view){
+        int sizeBefore = holder.getData().size();
+        holder.deleteStrip(stripToView.getOwnerUsername(), stripToView.getStripTitle());
+        if (sizeBefore == holder.getData().size()){
+            Log.d("datas", "PROBLEM THIS DID NOT ACTUALLY DELETE");
+        }
         Log.d("datas", "DELETE THIS STRIP");
+        finish();
     }
 
 
