@@ -27,12 +27,11 @@
 
             <!-- Button to insert from gallery -->
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/image_selected"
                 android:layout_width="275dp"
                 android:layout_height="275dp"
                 android:layout_gravity="center"
-                android:onClick="uploadPhoto"
                 android:src="@drawable/tap_to_upload"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
@@ -68,6 +67,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:gravity="bottom|center"
                     android:background="@android:color/transparent"
                     android:onClick="cancelNewStrip"
                     android:text="@string/button_cancel"></example.com.gracie.muse.CButton>
@@ -77,7 +78,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
+                    android:gravity="bottom|center"
                     android:layout_weight="1"
+                    android:textSize="20dp"
                     android:textColor="@color/colorAccent"
                     android:background="@android:color/transparent"
                     android:onClick="toInvite"

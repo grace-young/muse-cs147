@@ -83,8 +83,7 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
             holder.titleImage.setImageURI(Uri.parse(stripAtPos.getFirstPanel().getImagePath()));
         } else{
             ArrayList<Integer> panelImageIDs = stripAtPos.getPanelIds();
-            //holder.titleImage.setImageResource(stripAtPos.getFirstPanel().getImageID());
-            animateIDs(holder.titleImage, panelImageIDs, 0, true);
+            holder.titleImage.setImageResource(stripAtPos.getFirstPanel().getImageID());
         }
 
         // ^ later on we'll have to check if it is actually on the SD card
@@ -103,9 +102,6 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
                 String stripAsString = new Gson().toJson(stripAtPos);
                 intent.putExtra("stripstring", stripAsString);
                 view.getContext().startActivity(intent);
-                       /* String arrayAsString = new Gson().toJson(holder.getData());
-                intent.putExtra("striparray", arrayAsString);
-                startActivityForResult(intent, NEW_STRIP_RESULT);*/
             }
 
         });
@@ -113,104 +109,6 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
 
 
     }
-
-
-    // This one decodes the image paths as Uri's
-    private void animatePaths(final ImageView imageView, final ArrayList<String> imagePaths, final int imageIndex, final boolean forever) {
-
-        int fadeInDuration = 500; // Configure time values here
-        int timeBetween = 3000;
-        int fadeOutDuration = 1000;
-
-        imageView.setVisibility(View.INVISIBLE);    //Visible or invisible by default - this will apply when the animation ends
-        //imageView.setImageResource(images[imageIndex]);
-        imageView.setImageURI(Uri.parse(imagePaths.get(imageIndex)));
-
-        Animation fadeIn = new AlphaAnimation(0, 1);
-        fadeIn.setInterpolator(new DecelerateInterpolator()); // add this
-        fadeIn.setDuration(fadeInDuration);
-
-        Animation fadeOut = new AlphaAnimation(1, 0);
-        fadeOut.setInterpolator(new AccelerateInterpolator()); // and this
-        fadeOut.setStartOffset(fadeInDuration + timeBetween);
-        fadeOut.setDuration(fadeOutDuration);
-
-        AnimationSet animation = new AnimationSet(false); // change to false
-        animation.addAnimation(fadeIn);
-        animation.addAnimation(fadeOut);
-        animation.setRepeatCount(1);
-        imageView.setAnimation(animation);
-
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            public void onAnimationEnd(Animation animation) {
-                if (imagePaths.size() - 1 > imageIndex) {
-                    animatePaths(imageView, imagePaths, imageIndex + 1,forever); //Calls itself until it gets to the end of the array
-                }
-                else {
-                    if (forever){
-                        animatePaths(imageView, imagePaths, 0,forever);  //Calls itself to start the animation all over again in a loop if forever = true
-                    }
-                }
-            }
-            public void onAnimationRepeat(Animation animation) {
-                // TODO Auto-generated method stub
-            }
-            public void onAnimationStart(Animation animation) {
-                // TODO Auto-generated method stub
-            }
-        });
-    }
-
-
-    private void animateIDs(final ImageView imageView, final ArrayList<Integer> images, final int imageIndex, final boolean forever) {
-
-        //imageView <-- The View which displays the images
-        //images[] <-- Holds R references to the images to display
-        //imageIndex <-- index of the first image to show in images[]
-        //forever <-- If equals true then after the last image it starts all over again with the first image resulting in an infinite loop. You have been warned.
-
-        int fadeInDuration = 500; // Configure time values here
-        int timeBetween = 3000;
-        int fadeOutDuration = 1000;
-
-        imageView.setVisibility(View.INVISIBLE);    //Visible or invisible by default - this will apply when the animation ends
-        imageView.setImageResource(images.get(imageIndex));
-
-        Animation fadeIn = new AlphaAnimation(0, 1);
-        fadeIn.setInterpolator(new DecelerateInterpolator()); // add this
-        fadeIn.setDuration(fadeInDuration);
-
-        Animation fadeOut = new AlphaAnimation(1, 0);
-        fadeOut.setInterpolator(new AccelerateInterpolator()); // and this
-        fadeOut.setStartOffset(fadeInDuration + timeBetween);
-        fadeOut.setDuration(fadeOutDuration);
-
-        AnimationSet animation = new AnimationSet(false); // change to false
-        animation.addAnimation(fadeIn);
-        animation.addAnimation(fadeOut);
-        animation.setRepeatCount(1);
-        imageView.setAnimation(animation);
-
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            public void onAnimationEnd(Animation animation) {
-                if (images.size() - 1 > imageIndex) {
-                    animateIDs(imageView, images, imageIndex + 1,forever); //Calls itself until it gets to the end of the array
-                }
-                else {
-                    if (forever){
-                        animateIDs(imageView, images, 0,forever);  //Calls itself to start the animation all over again in a loop if forever = true
-                    }
-                }
-            }
-            public void onAnimationRepeat(Animation animation) {
-                // TODO Auto-generated method stub
-            }
-            public void onAnimationStart(Animation animation) {
-                // TODO Auto-generated method stub
-            }
-        });
-    }
-
 
 
     // Return the size of your dataset (invoked by the layout manager)

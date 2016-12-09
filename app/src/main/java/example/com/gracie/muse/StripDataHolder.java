@@ -22,7 +22,7 @@ public class StripDataHolder {
 
     /* Used to add a brand new strip to the data */
     public void addNewStrip(Strip newStrip){
-        allStrips.add(newStrip);
+        allStrips.add(0, newStrip);
     }
 
     public boolean addPanelToStrip(String creatorUsername, String stripTitle, Panel newPanel){
@@ -41,6 +41,19 @@ public class StripDataHolder {
     public void resetStripArray(ArrayList<Strip> stripArray){
         allStrips = stripArray;
         Log.d("datas", "reset the stored strip arraylist");
+    }
+
+    public Strip getStrip(String creatorUsername, String stripTitle){
+        for (Strip s : allStrips){
+            if(s.getOwnerUsername().equals(creatorUsername) &&
+                    s.getStripTitle().equals(stripTitle)){
+                // This is the same strip! And it is not completed.
+                // Might be easier to pass in info for panel?????
+                Log.d("datas", "inside getStrip & found strip");
+                return s;
+            }
+        }
+        return null;
     }
 
     public void deleteStrip(String creatorUsername, String stripTitle){

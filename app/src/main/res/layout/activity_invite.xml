@@ -26,9 +26,11 @@
             android:text="Success! Your strip has been created."/>
 
         <ImageView
+            android:id="@+id/first_panel_img_invite"
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_gravity="center"
+            android:scaleType="centerCrop"
             android:background="@android:color/darker_gray"/>
 
         <LinearLayout
