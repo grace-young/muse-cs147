@@ -1,5 +1,6 @@
 package example.com.gracie.muse;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -48,20 +49,7 @@ public class AddPanelActivity extends AppCompatActivity {
         // Pull Blurb
         EditText blurbEdit = (EditText) findViewById(R.id.edit_blurb);
 
-        if(blurbEdit.getText().toString().matches("")){
-            // ERROR
-            LayoutInflater inflater = getLayoutInflater();
-            View layout = inflater.inflate(R.layout.custom_toast,
-                    (ViewGroup) findViewById(R.id.custom_toast_container));
 
-            TextView text = (TextView) layout.findViewById(R.id.text);
-            text.setText("Add a blurb (short description) of your panel!");
-
-            Toast toast = new Toast(getApplicationContext());
-            toast.setDuration(Toast.LENGTH_LONG);
-            toast.setView(layout);
-            toast.show();
-        } else{
             // Actually add the panel
             // String username, String blurb, String imgPath, int imgID
             Panel p = new Panel(holder.getNewUsername(), blurbEdit.getText().toString(), selectedImgUriPath, -1);
@@ -77,6 +65,14 @@ public class AddPanelActivity extends AppCompatActivity {
             finish();
         }
 
+    public void cancelNewStrip(View view) {
+        // Called when "CANCEL" button is tapped
+        Intent returnIntent = new Intent();
+        // there is no data to pass back
+        setResult(Activity.RESULT_CANCELED, returnIntent);
+        finish();
+    }
+
         // Pull tags ??????
     }
-}
+
