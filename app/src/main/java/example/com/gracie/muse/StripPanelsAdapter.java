@@ -40,7 +40,7 @@ public class StripPanelsAdapter extends  RecyclerView.Adapter<StripPanelsAdapter
             super(itemView);
             cv = (CardView)itemView.findViewById(R.id.cv);
             creatorUsername = (TextView)itemView.findViewById(R.id.creator_username);
-            panelBlurb = (TextView)itemView.findViewById(R.id.strip_title);
+            panelBlurb = (TextView)itemView.findViewById(R.id.blurb_text);
             panelImage = (ImageView)itemView.findViewById(R.id.strip_photo);
         }
     }

@@ -10,14 +10,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="290dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-        >
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
             android:id="@+id/strip_photo"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
@@ -28,22 +27,28 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <example.com.gracie.muse.CustomTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/strip_title"
-                android:layout_toRightOf="@+id/strip_photo"
-                android:layout_alignParentTop="true"
-                android:textSize="18sp">
-            </example.com.gracie.muse.CustomTextView>
+
 
             <example.com.gracie.muse.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/creator_username"
-                android:layout_toRightOf="@+id/strip_photo"
-                android:layout_below="@+id/strip_title">
+                android:padding="3dp"
+                android:textSize="14dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_toRightOf="@+id/strip_photo">
             </example.com.gracie.muse.CustomTextView>
+
+            <example.com.gracie.muse.CustomTextView
+                android:layout_width="wrap_content"
+                android:padding="3dp"
+                android:maxLines="5"
+                android:ellipsize="end"
+                android:id="@id/blurb_text"
+                android:scrollHorizontally="true"
+                android:layout_height="100dp"
+                android:textColor="@color/colorPrimary"
+                />
 
         </LinearLayout>
 
