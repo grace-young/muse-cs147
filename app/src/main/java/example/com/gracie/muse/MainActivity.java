@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         Strip differentStrip = new Strip ("Do you", "shannwoo", false);
         differentStrip.addPanel("shannwoo", "Gotta love him. Always doin his own thing", R.drawable.d_stitch);
         differentStrip.addPanel("gracebyung", "Ugly ducklings unite", R.drawable.d_ugly_duckling);
-        differentStrip.addPanel("madawg", "Lyric from \"Get it Together\", one of my fav songs by India Arie", R.drawable.d_lyric2);
+        differentStrip.addPanel("madawg", "Lyric from \"Get it Together\", one of my fav songs by India Arie", R.drawable.d_lyric);
         holder.addNewStrip(differentStrip);
         Log.d("datas", "differentstrip iscompleted: " + differentStrip.isCreatedByNewUser());
         Log.d("datas", holder.getData().toString());
