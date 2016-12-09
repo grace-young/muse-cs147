@@ -16,16 +16,8 @@
         android:orientation="vertical">
 
         <example.com.gracie.muse.CButton
-            android:id="@+id/strip_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:layout_marginBottom="2dp"
-            android:background="@android:color/transparent"
-            android:textColor="@color/colorPrimaryDark"></example.com.gracie.muse.CButton>
-
-        <example.com.gracie.muse.CButton
             android:id="@+id/username"
+            android:onClick="goToProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"

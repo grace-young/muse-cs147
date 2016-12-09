@@ -61,6 +61,9 @@ public class StripViewActivity extends AppCompatActivity {
         stripToView = new Gson().fromJson(stripObjAsString, Strip.class);
         setTitle(stripToView.getStripTitle());
 
+        CButton cb = (CButton) findViewById(R.id.username);
+        cb.setText(stripToView.getOwnerUsername());
+
         mRecyclerView = (RecyclerView)findViewById(R.id.rv);
         mRecyclerView.setHasFixedSize(true);
 
@@ -91,6 +94,14 @@ public class StripViewActivity extends AppCompatActivity {
             Log.d("datas", "IN ELSE");
         }
 
+    }
+
+    public void goToProfile(View view){
+        Log.d("prof", "in goToProfile");
+        String username = stripToView.getOwnerUsername();
+        Intent intent = new Intent(this, ProfileGracie.class);
+        intent.putExtra("usernamestr", username);
+        startActivity(intent);
     }
 
 

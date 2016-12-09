@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Gracie on 12/1/2016.
@@ -12,9 +13,18 @@ import java.util.ArrayList;
 public class StripDataHolder {
     private ArrayList<Strip> allStrips = new ArrayList<Strip>();
     private String newUsername;
+    private ArrayList<Integer> profIDs = new ArrayList<Integer>();
 
     public ArrayList<Strip> getData(){
         return allStrips;
+    }
+
+    public void addUsernamePhotoID(Integer photoId){
+        profIDs.add(photoId);
+    }
+
+    public ArrayList<Integer> getProfilePhotoIds(){
+        return profIDs;
     }
 
     public void setData(ArrayList<Strip> allStripsNew){
@@ -60,6 +70,21 @@ public class StripDataHolder {
         }
         return null;
     }
+
+    public ArrayList<Strip> getStripsFromUser(String username){
+        ArrayList<Strip> toReturn = new ArrayList<Strip>();
+        for (Strip s : allStrips){
+            Log.d("prof", "strip created by: " + s.getOwnerUsername());
+            if(s.getOwnerUsername().matches(username)){
+                // This is the same strip! And it is not completed.
+                // Might be easier to pass in info for panel?????
+                Log.d("prof", "found strip for user: " + username);
+                toReturn.add(s);
+            }
+        }
+        return toReturn;
+    }
+
 
     public void deleteStrip(String creatorUsername, String stripTitle){
         for(int i = 0; i < allStrips.size(); i++){

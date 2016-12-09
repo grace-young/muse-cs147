@@ -182,6 +182,18 @@ public class MainActivity extends AppCompatActivity {
             // This has already been initalized
             return holder;
         }
+
+        Integer dumb_0 = new Integer(R.drawable.gracieyoung);
+        Integer dumb_1 = new Integer(R.drawable.shannonwu);
+        Integer dumb_2 = new Integer(R.drawable.madisonwillcox);
+        Integer dumb_3 = new Integer(R.drawable.ic_face);
+        holder.addUsernamePhotoID(dumb_0);
+        holder.addUsernamePhotoID(dumb_1);
+        holder.addUsernamePhotoID(dumb_2);
+
+        // thrid person is last
+        holder.addUsernamePhotoID(dumb_3); // 3rd index is for other person.
+
         Strip balloonStrip = new Strip ("Lost Balloon", "madawg", false);
         balloonStrip.addPanel("madawg", "Before Dumbo grew his ears, all he had was a little balloon and big dreams.", R.drawable.b_elephant);
         balloonStrip.addPanel("gracebyung", "Then one day he lost the balloon! It floated away into the sky.", R.drawable.b_balloon);
@@ -191,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
 
         Strip peopleStrip = new Strip ("Stick Figures", "gracebyung", false);
         peopleStrip.addPanel("gracebyung", "I can only draw stick figures :(", R.drawable.p_stick_figure);
-        peopleStrip.addPanel("shannowooo", "Keep at it, that's where we all start!", R.drawable.p_man_drawing);
+        peopleStrip.addPanel("shannowoo", "Keep at it, that's where we all start!", R.drawable.p_man_drawing);
         holder.addNewStrip(peopleStrip);
         Log.d("datas", "peoplestrip iscompleted: " + peopleStrip.isCreatedByNewUser());
 
@@ -207,8 +219,8 @@ public class MainActivity extends AppCompatActivity {
         holder.addNewStrip(leavesStrip);
         Log.d("datas", "leavestrip iscompleted: " + leavesStrip.isCreatedByNewUser());
 
-        Strip differentStrip = new Strip ("Do you", "shannwoo", false);
-        differentStrip.addPanel("shannwoo", "Gotta love him. Always doin his own thing", R.drawable.d_stitch);
+        Strip differentStrip = new Strip ("Do you", "shannwooo", false);
+        differentStrip.addPanel("shannwooo", "Gotta love him. Always doin his own thing", R.drawable.d_stitch);
         differentStrip.addPanel("gracebyung", "Ugly ducklings unite", R.drawable.d_ugly_duckling);
         differentStrip.addPanel("madawg", "Lyric from \"Get it Together\", one of my fav songs by India Arie", R.drawable.d_lyric);
         holder.addNewStrip(differentStrip);

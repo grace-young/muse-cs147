@@ -19,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="gracebyung"
+            android:id="@+id/prof_username"
             android:textSize="20dp"
             android:layout_gravity="center"
             android:textColor="@color/colorPrimaryDark"/>
@@ -28,6 +29,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:padding="10dp"
+            android:id="@+id/prof_photo"
             android:src="@drawable/gracieyoung"/>
 
         <View
@@ -35,9 +37,12 @@
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"/>
 
-        <ListView
-            android:layout_marginTop="15dp"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:scrollbars="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
+            android:layout_height="0dip"
+            android:elevation="0dp"
+            android:layout_weight="1"/>
     </LinearLayout>
 </RelativeLayout>
