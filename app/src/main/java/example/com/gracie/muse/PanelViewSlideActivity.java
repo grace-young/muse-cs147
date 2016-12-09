@@ -27,7 +27,6 @@ public class PanelViewSlideActivity extends AppCompatActivity{ //FragmentActivit
      */
     private ViewPager mPager;
 
-
     private Strip stripToView;
     private ArrayList<Panel> panelsInStrip;
 
@@ -71,7 +70,6 @@ public class PanelViewSlideActivity extends AppCompatActivity{ //FragmentActivit
         }
     }
 
-
     /**
      * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
      * sequence.
@@ -96,14 +94,8 @@ public class PanelViewSlideActivity extends AppCompatActivity{ //FragmentActivit
         }
     }
 
-
     public void onFragmentInteraction(Uri uri){
         Log.d("datas", "HELLO FROM FRAGMENT");
     }
-
-
-
-
-
 }
 
