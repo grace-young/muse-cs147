@@ -182,6 +182,11 @@ public class MainActivity extends AppCompatActivity {
             // This has already been initalized
             return holder;
         }
+
+        holder.addUsernamePhotoIDPair("gracebyung", new Integer(R.drawable.gracieyoung));
+        holder.addUsernamePhotoIDPair("shannwooo", new Integer(R.drawable.shannonwu));
+        holder.addUsernamePhotoIDPair("madawg", new Integer(R.drawable.madisonwillcox));
+
         Strip balloonStrip = new Strip ("Lost Balloon", "madawg", false);
         balloonStrip.addPanel("madawg", "Before Dumbo grew his ears, all he had was a little balloon and big dreams.", R.drawable.b_elephant);
         balloonStrip.addPanel("gracebyung", "Then one day he lost the balloon! It floated away into the sky.", R.drawable.b_balloon);
