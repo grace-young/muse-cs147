@@ -37,7 +37,7 @@
         <activity android:name=".OnboardingContribute" />
         <activity android:name=".OnboardingCreate" />
         <activity android:name=".StripViewActivity" />
-        <activity android:name=".inviteToExistingStrip" />
+        <activity android:name=".InviteToExistingStripActivity" />
         <activity android:name=".AddPanelActivity"></activity>
     </application>
 

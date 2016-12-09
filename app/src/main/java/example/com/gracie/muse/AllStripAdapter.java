@@ -103,9 +103,6 @@ public class AllStripAdapter extends RecyclerView.Adapter<AllStripAdapter.StripV
                 String stripAsString = new Gson().toJson(stripAtPos);
                 intent.putExtra("stripstring", stripAsString);
                 view.getContext().startActivity(intent);
-                       /* String arrayAsString = new Gson().toJson(holder.getData());
-                intent.putExtra("striparray", arrayAsString);
-                startActivityForResult(intent, NEW_STRIP_RESULT);*/
             }
 
         });

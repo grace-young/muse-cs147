@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v4.app.FragmentActivity;
 
@@ -31,12 +32,14 @@ public class NewStripActivity extends AppCompatActivity {
 
     private static final int SELECT_PICTURE = 100;
     private static final int REQUEST_PERMISSION = 101;
-    private ImageButton imgButton;
+    private ImageView imgButton;
 
     private String selectedImgUriPath = null; // use Uri.parse() to get back to URI
 
-    private ArrayList<Strip> stripArray;
+//    private ArrayList<Strip> stripArray;
     private static final int INVITE_CODE = 102;
+
+    private StripDataHolder holder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,22 +53,19 @@ public class NewStripActivity extends AppCompatActivity {
 
         setTitle("Create New Strip");
 
-        String arrayAsString = getIntent().getExtras().getString("striparray");
-        Log.d("hello", arrayAsString);
-        Log.d("hello", "why is this so difficult");
-        List<Strip> list = Arrays.asList(new Gson().fromJson(arrayAsString, Strip[].class));
-        stripArray = new ArrayList<Strip>(list); //hopefully converts ??????
+        // unclear??
+        holder = StripDataHolder.getInstance();
 
-        Log.d("datas", "Got data back from Gson");
-        for (int i = 0; i < stripArray.size(); i++) {
-            Log.d("datas", stripArray.get(i).toString());
-        }
-        Log.d("datas", "finished printing");
+        selectedImgUriPath = getIntent().getExtras().getString("imgpath");
 
-        imgButton = (ImageButton) findViewById(R.id.image_selected);
+        imgButton = (ImageView) findViewById(R.id.image_selected);
+
+        imgButton.setImageURI(Uri.parse(selectedImgUriPath));
     }
 
-    public ArrayList<Strip> finishNewStrip(View view) {
+    // returns true if it added it successfully
+    // returns false if it had an error
+    public boolean finishNewStrip(View view) {
         // Called when "OK" button is tapped
         Log.d("datas", "inside finishNewStrip method");
         EditText editTitle = (EditText) findViewById(R.id.edit_title);
@@ -80,10 +80,13 @@ public class NewStripActivity extends AppCompatActivity {
 
         newStrip.addPanel(newPanel);
 
+        holder.addNewStrip(newStrip);
+
         // add it to the ArrayList<Strip>
         // and send that back.
-        stripArray.add(0, newStrip);
-        return stripArray;
+//        stripArray.add(0, newStrip);
+//        return stripArray;
+        return true;
     }
 
     public void cancelNewStrip(View view) {
@@ -94,70 +97,16 @@ public class NewStripActivity extends AppCompatActivity {
         finish();
     }
 
-    public void uploadPhoto(View view) {
-        // Called when upload button is tapped
-
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
-    }
-
     public void toInvite(View view) {
-        ArrayList<Strip> stripArray = finishNewStrip(view);
-        Intent intent = new Intent(this, InviteActivity.class);
+        if(finishNewStrip(view)) {
+           Intent intent = new Intent(this, InviteActivity.class);
+            String stripAsString = new Gson().toJson(holder.getData().get(0)); // ????
+            intent.putExtra("stripstring", stripAsString);
+            startActivity(intent);
 
-        //       String arrayAsString = new Gson().toJson(holder.getData());
-        String arrayAsString = new Gson().toJson(stripArray);
-
-        intent.putExtra("striparray", arrayAsString);
-        startActivityForResult(intent, INVITE_CODE);
-
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (requestCode == INVITE_CODE) {
-                // Get the url from data
-                Log.d("hello", "in INVITE CODE");
-                String arrayAsString = data.getStringExtra("striparray");
-                Intent returnIntent = new Intent();
-                returnIntent.putExtra("striparray", arrayAsString);
-                setResult(Activity.RESULT_OK, returnIntent);
-                finish();
-            } else if (requestCode == SELECT_PICTURE) {
-                // Get the url from data
-                Uri selectedImageUri = data.getData();
-                if (null != selectedImageUri) {
-
-                    // Get the path from the Uri
-                    String path = getPathFromURI(selectedImageUri);
-                    String selectedImagePath;
-
-                    Log.i("datas", "Image Path : " + path);
-                    Log.d("datas", "URI: " + selectedImageUri);
-
-                    // CONSENT
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                            && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                                REQUEST_PERMISSION);
-                        //dialog.dismiss();
-                        return;
-                    }
-
-                    // Set the image in ImageView
-                    //selectedImgUriPath = selectedImageUri.toString();
-                    selectedImagePath = ImageFilePath.getPath(getApplicationContext(), selectedImageUri);
-                    selectedImgUriPath = selectedImagePath;
-                    imgButton.setImageURI(selectedImageUri);
-                    Log.i("datas", "img file path " + selectedImagePath);
-                }
-            }
         }
     }
-
+    
 
     @Override
     public void onRequestPermissionsResult(final int requestCode,

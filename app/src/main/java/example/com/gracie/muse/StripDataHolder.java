@@ -22,7 +22,7 @@ public class StripDataHolder {
 
     /* Used to add a brand new strip to the data */
     public void addNewStrip(Strip newStrip){
-        allStrips.add(newStrip);
+        allStrips.add(0, newStrip);
     }
 
     public boolean addPanelToStrip(String creatorUsername, String stripTitle, Panel newPanel){

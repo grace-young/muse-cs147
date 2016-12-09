@@ -1,7 +1,14 @@
 package example.com.gracie.muse;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private StripDataHolder holder;
 
+
+    private static final int SELECT_PICTURE  = 149;
+    private static final int REQUEST_PERMISSION = 105;
     private static final int NEW_STRIP_RESULT = 147;
 
     @Override
@@ -62,37 +72,71 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createNewStrip(View view) {
-        Intent intent = new Intent(this, ProfileActivity.class);
-        startActivity(intent);
-        // holder.getData() returns an arraylist of all the strip objects
-//        String arrayAsString = new Gson().toJson(holder.getData());
-//        Log.d("hello", arrayAsString);
-//        intent.putExtra("striparray", arrayAsString);
-//        startActivityForResult(intent, NEW_STRIP_RESULT);
+        //Intent intent = new Intent(this, NewStripActivity.class);
+
+        // start the camera thing
+        Intent cam_intent = new Intent();
+        cam_intent.setType("image/*");
+        cam_intent.setAction(Intent.ACTION_GET_CONTENT);
+
+        startActivityForResult(Intent.createChooser(cam_intent, "Select Picture"), SELECT_PICTURE);
+
+/*
+        String arrayAsString = new Gson().toJson(holder.getData());
+        Log.d("hello", arrayAsString);
+        intent.putExtra("striparray", arrayAsString);
+        startActivityForResult(intent, NEW_STRIP_RESULT);
+*/
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (requestCode == NEW_STRIP_RESULT) {
-            if(resultCode == Activity.RESULT_OK){
-                String arrayAsString =data.getStringExtra("striparray");
+        if (requestCode == SELECT_PICTURE) {
+            if(resultCode == Activity.RESULT_OK) {
 
-                List<Strip> list = Arrays.asList(new Gson().fromJson(arrayAsString, Strip[].class));
-                ArrayList<Strip> arrStrip = new ArrayList<Strip>(list); //hopefully converts ??????
+                // CAMERA IS BACK
 
-                holder.resetStripArray(arrStrip);
-                Log.d("datas", "RESET THE STRIP ARR");
-                mAdapter = new AllStripAdapter(holder.getData());
-                mAdapter.notifyDataSetChanged();
-                mRecyclerView.setAdapter(mAdapter);
-                printData();
-            }
-            if (resultCode == Activity.RESULT_CANCELED) {
+                // Get the url from data
+                Uri selectedImageUri = data.getData();
+                if (null != selectedImageUri) {
+
+                    // Get the path from the Uri
+                    String selectedImagePath;
+                    Log.d("datas", "URI: " + selectedImageUri);
+
+                    // CONSENT
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                            && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                REQUEST_PERMISSION);
+                        //dialog.dismiss();
+                        return;
+                    }
+
+                    // Set the image in ImageView
+                    //selectedImgUriPath = selectedImageUri.toString();
+                    selectedImagePath = ImageFilePath.getPath(getApplicationContext(), selectedImageUri);
+
+
+                    Intent newStrip = new Intent(this, NewStripActivity.class);
+
+                    //puts the string in
+                    newStrip.putExtra("imgpath", selectedImagePath);
+                    startActivity(newStrip);
+
+                } else {
+                    // did not select image
+                    Log.d("datas", "DID NOT SELECT IMG");
+                }
+            }else if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
             }
         }
     }
+
+
+
 
     private void printData(){
         ArrayList<Strip> stripArray = holder.getData();
@@ -107,6 +151,25 @@ public class MainActivity extends AppCompatActivity {
         Log.d("datas", "finished printing");
 
     }
+
+    @Override
+    public void onRequestPermissionsResult(final int requestCode,
+                                           @NonNull final String[] permissions, @NonNull final int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted.
+                // Set the image in ImageView
+                //selectedImgUriPath = selectedImageUri.toString();
+
+                Log.i("datas", "permission granted");
+            } else {
+                // User refused to grant permission.
+                Log.d("datas", "no permision");
+            }
+        }
+    }
+
 
     private StripDataHolder initializeData(){
         holder = StripDataHolder.getInstance();

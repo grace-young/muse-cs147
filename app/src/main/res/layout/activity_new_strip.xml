@@ -27,12 +27,11 @@
 
             <!-- Button to insert from gallery -->
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/image_selected"
                 android:layout_width="275dp"
                 android:layout_height="275dp"
                 android:layout_gravity="center"
-                android:onClick="uploadPhoto"
                 android:src="@drawable/tap_to_upload"
                 android:adjustViewBounds="true"
                 android:background="@android:color/transparent"

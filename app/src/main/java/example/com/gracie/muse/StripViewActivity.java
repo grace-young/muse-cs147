@@ -47,8 +47,6 @@ public class StripViewActivity extends AppCompatActivity {
         mAdapter = new StripPanelsAdapter(stripToView);
         mRecyclerView.setAdapter(mAdapter);
 
-        CustomTextView cv = (CustomTextView) findViewById(R.id.title_of_strip);
-        cv.setText(stripToView.getStripTitle());
 
         // EDIT THE VISIBILITY
         Log.d("datas", "STRIP TO VIEW COLMPLETE...." + stripToView.isCreatedByNewUser());
@@ -70,16 +68,9 @@ public class StripViewActivity extends AppCompatActivity {
             Log.d("datas", "IN ELSE");
         }
 
-        // TESTING SOME HOLDER THINGS
-        holder = StripDataHolder.getInstance();
-        Strip s = new Strip("titleherehahaha", "fakeowner hahaha", false);
-        holder.addNewStrip(s);
-
-        Log.d("holder", "length of holder data: " + holder.getData().size());
-
-
-
         Log.d("datas", "IN ON CREATE of StripViewActivity");
+
+        holder = StripDataHolder.getInstance();
     }
 
 
@@ -88,15 +79,13 @@ public class StripViewActivity extends AppCompatActivity {
         stripToView.markStripCompleted();
         LinearLayout linlay_finish = (LinearLayout) findViewById(R.id.finish_strip_button);
         linlay_finish.setVisibility(View.INVISIBLE);
+
+        LinearLayout linlay_invite = (LinearLayout) findViewById(R.id.button_invite_panel);
+        linlay_invite.setVisibility(View.INVISIBLE);
+
         Toast.makeText(getApplicationContext(), "Your strip is finished: congrats!", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onBackPressed()
-    {
-        // want to find way to tell main activity that the strip has been updated????
-        super.onBackPressed();
-    }
 
     public void deleteStrip(View view){
         int sizeBefore = holder.getData().size();
@@ -110,8 +99,25 @@ public class StripViewActivity extends AppCompatActivity {
 
 
     public void toInvite(View view) {
-        Intent intent = new Intent(this, InviteActivity.class);
+        Intent intent = new Intent(this, InviteToExistingStripActivity.class);
+
+        // Send the Strip as a string
+        String stripAsString = new Gson().toJson(stripToView);
+        intent.putExtra("stripstring", stripAsString);
         startActivity(intent);
+    }
+
+    public void addPanelToStrip(View view){
+        // ADD A PANEL TO THE STRIP
+
+        // GET THE PHOTO, SEND TO AddPanelActivity.class
+
+        // Send the current strip info along
+/*        Intent intent = new Intent(view.getContext(), StripViewActivity.class);
+        // Send the Strip as a string
+        String stripAsString = new Gson().toJson(stripAtPos);
+        intent.putExtra("stripstring", stripAsString);
+        view.getContext().startActivity(intent);*/
     }
 
 }
