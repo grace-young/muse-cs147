@@ -29,7 +29,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:padding="10dp"
-            android:src="@drawable/ShannonWu"/>
+            android:src="@drawable/shannonwu"/>
 
         <View
             android:layout_width="match_parent"
