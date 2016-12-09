@@ -55,7 +55,7 @@
                 android:layout_gravity="center|bottom"
                 android:background="@color/colorAccent"
                 android:padding="12dp"
-                android:onClick="toCreate"
+                android:onClick="toMain"
                 android:text="@string/button_sounds_good"
                 android:textColor="@android:color/white"
                 android:textSize="18dp"></example.com.gracie.muse.CButton>

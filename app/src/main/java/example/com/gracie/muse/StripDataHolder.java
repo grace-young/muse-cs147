@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class StripDataHolder {
     private ArrayList<Strip> allStrips = new ArrayList<Strip>();
+    private String newUsername;
 
     public ArrayList<Strip> getData(){
         return allStrips;
@@ -24,6 +25,10 @@ public class StripDataHolder {
     public void addNewStrip(Strip newStrip){
         allStrips.add(0, newStrip);
     }
+
+    public void updateNewUsername(String username){ newUsername=username; }
+
+    public String getNewUsername(){return newUsername;}
 
     public boolean addPanelToStrip(String creatorUsername, String stripTitle, Panel newPanel){
         for (Strip s : allStrips){

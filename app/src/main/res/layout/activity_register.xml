@@ -45,6 +45,9 @@
 
             <!--gotta check if the username/email is unique-->
             <example.com.gracie.muse.CEditText
+                android:id="@+id/edit_username"
+                android:maxLines="1"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/colorPrimary"></example.com.gracie.muse.CEditText>
@@ -69,8 +72,11 @@
 
 
             <example.com.gracie.muse.CEditText
+                android:id="@+id/edit_email"
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
                 android:textColorHint="@color/colorPrimary"></example.com.gracie.muse.CEditText>
 
         </LinearLayout>
@@ -93,6 +99,9 @@
                 android:text="@string/password"></example.com.gracie.muse.CustomTextView>
 
             <example.com.gracie.muse.CEditText
+                android:id="@+id/edit_password"
+                android:maxLines="1"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"></example.com.gracie.muse.CEditText>

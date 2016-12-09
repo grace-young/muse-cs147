@@ -64,7 +64,7 @@ public class AddPanelActivity extends AppCompatActivity {
         } else{
             // Actually add the panel
             // String username, String blurb, String imgPath, int imgID
-            Panel p = new Panel("owner", blurbEdit.getText().toString(), selectedImgUriPath, -1);
+            Panel p = new Panel(holder.getNewUsername(), blurbEdit.getText().toString(), selectedImgUriPath, -1);
             holder.addPanelToStrip(stripAddingTo.getOwnerUsername(), stripAddingTo.getStripTitle(), p);
 
             Strip newStripMade = holder.getStrip(stripAddingTo.getOwnerUsername(), stripAddingTo.getStripTitle());

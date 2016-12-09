@@ -63,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        // do nothing so that doesn't accidentally go back into onboarding
+    }
+
+    @Override
     public void onResume(){
         super.onResume();
         Log.d("holder", "on resume called in main activity");

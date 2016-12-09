@@ -130,7 +130,7 @@
                 <example.com.gracie.muse.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ADD A PANEL"
+                    android:text="ADD PANEL"
                     android:layout_gravity="center|bottom"
                     android:textSize="16dp"
                     android:textColor="@color/colorPrimaryDark"/>
