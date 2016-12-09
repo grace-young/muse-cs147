@@ -15,12 +15,16 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -71,6 +75,21 @@ public class NewStripActivity extends AppCompatActivity {
         EditText editTitle = (EditText) findViewById(R.id.edit_title);
         EditText editBlurb = (EditText) findViewById(R.id.edit_blurb);
 
+        String title = editTitle.getText().toString();
+        if (title.matches("")) {
+            LayoutInflater inflater = getLayoutInflater();
+            View layout = inflater.inflate(R.layout.custom_toast,
+                    (ViewGroup) findViewById(R.id.custom_toast_container));
+
+            TextView text = (TextView) layout.findViewById(R.id.text);
+            text.setText("Your strip needs a title!");
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setView(layout);
+            toast.show();
+            return null;
+        }
         // Need to create a new Strip
         Strip newStrip = new Strip(editTitle.getText().toString(), "owner", true); // marking true that created by new user
         Log.d("datas", "The title set is: " + editTitle.getText().toString());
@@ -106,7 +125,7 @@ public class NewStripActivity extends AppCompatActivity {
 
         }
     }
-    
+
 
     @Override
     public void onRequestPermissionsResult(final int requestCode,

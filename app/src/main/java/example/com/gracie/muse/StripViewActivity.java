@@ -35,7 +35,7 @@ public class StripViewActivity extends AppCompatActivity {
         // Get the Strip from the previous activity
         String stripObjAsString = getIntent().getExtras().getString("stripstring");
         stripToView = new Gson().fromJson(stripObjAsString, Strip.class);
-
+        setTitle(stripToView.getStripTitle());
 
         mRecyclerView = (RecyclerView)findViewById(R.id.rv);
         mRecyclerView.setHasFixedSize(true);
