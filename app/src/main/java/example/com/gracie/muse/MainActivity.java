@@ -62,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createNewStrip(View view) {
-        Intent intent = new Intent(this, NewStripActivity.class);
+        Intent intent = new Intent(this, ProfileActivity.class);
 
         // holder.getData() returns an arraylist of all the strip objects
-        String arrayAsString = new Gson().toJson(holder.getData());
-        Log.d("hello", arrayAsString);
-        intent.putExtra("striparray", arrayAsString);
-        startActivityForResult(intent, NEW_STRIP_RESULT);
+//        String arrayAsString = new Gson().toJson(holder.getData());
+//        Log.d("hello", arrayAsString);
+//        intent.putExtra("striparray", arrayAsString);
+//        startActivityForResult(intent, NEW_STRIP_RESULT);
     }
 
     @Override
@@ -122,13 +122,13 @@ public class MainActivity extends AppCompatActivity {
         holder.addNewStrip(balloonStrip);
         Log.d("datas", "balloonstrip iscompleted: " + balloonStrip.isCreatedByNewUser());
 
-        Strip peopleStrip = new Strip ("Stick Figures", "shannwoooo", false);
+        Strip peopleStrip = new Strip ("Stick Figures", "gracebyung", false);
         peopleStrip.addPanel("gracebyung", "I can only draw stick figures :(", R.drawable.p_stick_figure);
         peopleStrip.addPanel("shannowooo", "Keep at it, that's where we all start!", R.drawable.p_man_drawing);
         holder.addNewStrip(peopleStrip);
         Log.d("datas", "peoplestrip iscompleted: " + peopleStrip.isCreatedByNewUser());
 
-        Strip leavesStrip = new Strip ("Leaves", "gracebyung", false);
+        Strip leavesStrip = new Strip ("Leaves", "shannwooo", false);
         leavesStrip.addPanel("shannwooo", "My backyard is COVERED in leaves!", R.drawable.l_leaves);
         leavesStrip.addPanel("gracebyung", "Did someone say leaves?", R.drawable.l_tea_leaves);
         leavesStrip.addPanel("madawg", "Watch out, Professor Trelawney might read your tea leaf fortune.", R.drawable.l_prof_trelawney);
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         holder.addNewStrip(leavesStrip);
         Log.d("datas", "leavestrip iscompleted: " + leavesStrip.isCreatedByNewUser());
 
-        Strip differentStrip = new Strip ("Do you", "madawg", false);
+        Strip differentStrip = new Strip ("Do you", "shannwoo", false);
         differentStrip.addPanel("shannwoo", "Gotta love him. Always doin his own thing", R.drawable.d_stitch);
         differentStrip.addPanel("gracebyung", "Ugly ducklings unite", R.drawable.d_ugly_duckling);
         differentStrip.addPanel("madawg", "Lyric from \"Get it Together\", one of my fav songs by India Arie", R.drawable.d_lyric2);

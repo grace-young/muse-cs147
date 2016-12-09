@@ -35,7 +35,7 @@ public class StripViewActivity extends AppCompatActivity {
         // Get the Strip from the previous activity
         String stripObjAsString = getIntent().getExtras().getString("stripstring");
         stripToView = new Gson().fromJson(stripObjAsString, Strip.class);
-
+        setTitle(stripToView.getStripTitle());
 
         mRecyclerView = (RecyclerView)findViewById(R.id.rv);
         mRecyclerView.setHasFixedSize(true);
@@ -46,9 +46,6 @@ public class StripViewActivity extends AppCompatActivity {
 
         mAdapter = new StripPanelsAdapter(stripToView);
         mRecyclerView.setAdapter(mAdapter);
-
-        CustomTextView cv = (CustomTextView) findViewById(R.id.title_of_strip);
-        cv.setText(stripToView.getStripTitle());
 
         // EDIT THE VISIBILITY
         Log.d("datas", "STRIP TO VIEW COLMPLETE...." + stripToView.isCreatedByNewUser());
